@@ -17,5 +17,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void NumPressed();
+
 };
 #endif // MAINWINDOW_H
