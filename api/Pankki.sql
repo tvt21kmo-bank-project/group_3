@@ -29,7 +29,7 @@ CREATE TABLE `asiakas` (
   `osoite` varchar(45) DEFAULT NULL,
   `puhelin_numero` int DEFAULT NULL,
   PRIMARY KEY (`idAsiakas`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `asiakas` (
 
 LOCK TABLES `asiakas` WRITE;
 /*!40000 ALTER TABLE `asiakas` DISABLE KEYS */;
-INSERT INTO `asiakas` VALUES (1,'1','Niko Naumanen','Peniskuja69',800123123);
+INSERT INTO `asiakas` VALUES (2,'2','Jarkko Majala','Mallikuja 10',800123123),(3,'3','Jukka Kaski','Mallikatu 1',400987654),(4,'4','Eino Jyrkkä','Mallikatu 2',500987654),(5,'5','Jaakko Jauhiainen','Mallikatu 4',400693258),(6,'6','Kari Niemi','Mallikatu 5',400457689);
 /*!40000 ALTER TABLE `asiakas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,6 +68,7 @@ CREATE TABLE `pankki_kortti` (
 
 LOCK TABLES `pankki_kortti` WRITE;
 /*!40000 ALTER TABLE `pankki_kortti` DISABLE KEYS */;
+INSERT INTO `pankki_kortti` VALUES (2,2,11223344,1234),(3,3,55667788,4321),(4,4,22558877,6969),(5,5,44556633,8524),(6,6,NULL,NULL);
 /*!40000 ALTER TABLE `pankki_kortti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +89,7 @@ CREATE TABLE `tilit` (
   PRIMARY KEY (`idtilit`,`Asiakas_idAsiakas`),
   KEY `fk_Tilit_Asiakas1_idx` (`Asiakas_idAsiakas`),
   CONSTRAINT `fk_Tilit_Asiakas1` FOREIGN KEY (`Asiakas_idAsiakas`) REFERENCES `asiakas` (`idAsiakas`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +98,7 @@ CREATE TABLE `tilit` (
 
 LOCK TABLES `tilit` WRITE;
 /*!40000 ALTER TABLE `tilit` DISABLE KEYS */;
+INSERT INTO `tilit` VALUES (2,123456789,666,'credit','1000',2),(3,123456789,777,'debit',NULL,2),(4,987654321,3582,'debit',NULL,3),(5,547896321,-5000,'credit','10000',4),(6,421356789,50000,'debit',NULL,5),(7,431652789,10,'debit',NULL,6);
 /*!40000 ALTER TABLE `tilit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-12 14:53:36
+-- Dump completed on 2021-11-12 18:51:55
