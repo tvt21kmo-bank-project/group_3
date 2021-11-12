@@ -27,9 +27,9 @@ CREATE TABLE `asiakas` (
   `Asiakas_tunnus` varchar(45) DEFAULT NULL,
   `nimi` varchar(45) DEFAULT NULL,
   `osoite` varchar(45) DEFAULT NULL,
-  `puhelin_numero` tinyint DEFAULT NULL,
+  `puhelin_numero` int DEFAULT NULL,
   PRIMARY KEY (`idAsiakas`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `asiakas` (
 
 LOCK TABLES `asiakas` WRITE;
 /*!40000 ALTER TABLE `asiakas` DISABLE KEYS */;
+INSERT INTO `asiakas` VALUES (1,'1','Niko Naumanen','Peniskuja69',800123123);
 /*!40000 ALTER TABLE `asiakas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,8 +52,8 @@ DROP TABLE IF EXISTS `pankki_kortti`;
 CREATE TABLE `pankki_kortti` (
   `Tilit_idtilit` int NOT NULL,
   `Asiakas_idAsiakas` int NOT NULL,
-  `ID_numero` tinyint DEFAULT NULL,
-  `Pin` tinyint DEFAULT NULL,
+  `ID_numero` int DEFAULT NULL,
+  `Pin` int DEFAULT NULL,
   PRIMARY KEY (`Tilit_idtilit`,`Asiakas_idAsiakas`),
   KEY `fk_Tilit_has_Asiakas_Asiakas1_idx` (`Asiakas_idAsiakas`),
   KEY `fk_Tilit_has_Asiakas_Tilit1_idx` (`Tilit_idtilit`),
@@ -79,8 +80,8 @@ DROP TABLE IF EXISTS `tilit`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tilit` (
   `idtilit` int NOT NULL AUTO_INCREMENT,
-  `tilinumero` tinyint DEFAULT NULL,
-  `saldo` tinyint DEFAULT NULL,
+  `tilinumero` int DEFAULT NULL,
+  `saldo` int DEFAULT NULL,
   `tyyppi` varchar(45) DEFAULT NULL,
   `luottoraja` varchar(45) DEFAULT NULL,
   `Asiakas_idAsiakas` int NOT NULL,
@@ -108,11 +109,11 @@ DROP TABLE IF EXISTS `tilitapahtumat`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tilitapahtumat` (
   `idtilitapahtumat` int NOT NULL AUTO_INCREMENT,
-  `account_num` tinyint DEFAULT NULL,
-  `kortin_numero` tinyint DEFAULT NULL,
-  `pvm_ja_klo` tinyint DEFAULT NULL,
+  `account_num` int DEFAULT NULL,
+  `kortin_numero` int DEFAULT NULL,
+  `pvm_ja_klo` int DEFAULT NULL,
   `tapahtuma` varchar(45) DEFAULT NULL,
-  `summa` tinyint DEFAULT NULL,
+  `summa` int DEFAULT NULL,
   `Tilit_idtilit` int NOT NULL,
   PRIMARY KEY (`idtilitapahtumat`,`Tilit_idtilit`),
   KEY `fk_Tilitapahtumat_Tilit1_idx` (`Tilit_idtilit`),
@@ -138,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-12 10:37:10
+-- Dump completed on 2021-11-12 14:53:36
