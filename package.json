@@ -1,0 +1,19 @@
+{
+  "name": "group_3",
+  "version": "1.0.0",
+  "description": "Ryhmän jäsenet Jaakko Malmi, Joonas Metsäniemi, Trinh Le ja Niko Naumanen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tvt21kmo-bank-project/group_3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tvt21kmo-bank-project/group_3/issues"
+  },
+  "homepage": "https://github.com/tvt21kmo-bank-project/group_3#readme"
+}
