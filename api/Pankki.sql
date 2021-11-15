@@ -27,7 +27,7 @@ CREATE TABLE `asiakas` (
   `Asiakas_tunnus` varchar(45) DEFAULT NULL,
   `nimi` varchar(45) DEFAULT NULL,
   `osoite` varchar(45) DEFAULT NULL,
-  `puhelin_numero` int DEFAULT NULL,
+  `puhelin_numero` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idAsiakas`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +38,6 @@ CREATE TABLE `asiakas` (
 
 LOCK TABLES `asiakas` WRITE;
 /*!40000 ALTER TABLE `asiakas` DISABLE KEYS */;
-INSERT INTO `asiakas` VALUES (2,'2','Jarkko Majala','Mallikuja 10',800123123),(3,'3','Jukka Kaski','Mallikatu 1',400987654),(4,'4','Eino Jyrkkä','Mallikatu 2',500987654),(5,'5','Jaakko Jauhiainen','Mallikatu 4',400693258),(6,'6','Kari Niemi','Mallikatu 5',400457689);
 /*!40000 ALTER TABLE `asiakas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,8 +51,8 @@ DROP TABLE IF EXISTS `pankki_kortti`;
 CREATE TABLE `pankki_kortti` (
   `Tilit_idtilit` int NOT NULL,
   `Asiakas_idAsiakas` int NOT NULL,
-  `ID_numero` int DEFAULT NULL,
-  `Pin` int DEFAULT NULL,
+  `ID_numero` varchar(255) DEFAULT NULL,
+  `Pin` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Tilit_idtilit`,`Asiakas_idAsiakas`),
   KEY `fk_Tilit_has_Asiakas_Asiakas1_idx` (`Asiakas_idAsiakas`),
   KEY `fk_Tilit_has_Asiakas_Tilit1_idx` (`Tilit_idtilit`),
@@ -68,7 +67,6 @@ CREATE TABLE `pankki_kortti` (
 
 LOCK TABLES `pankki_kortti` WRITE;
 /*!40000 ALTER TABLE `pankki_kortti` DISABLE KEYS */;
-INSERT INTO `pankki_kortti` VALUES (2,2,11223344,1234),(3,3,55667788,4321),(4,4,22558877,6969),(5,5,44556633,8524),(6,6,NULL,NULL);
 /*!40000 ALTER TABLE `pankki_kortti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,10 +79,8 @@ DROP TABLE IF EXISTS `tilit`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tilit` (
   `idtilit` int NOT NULL AUTO_INCREMENT,
-  `tilinumero` int DEFAULT NULL,
-  `saldo` int DEFAULT NULL,
-  `tyyppi` varchar(45) DEFAULT NULL,
-  `luottoraja` varchar(45) DEFAULT NULL,
+  `tilinumero` varchar(255) DEFAULT NULL,
+  `saldo` varchar(255) DEFAULT NULL,
   `Asiakas_idAsiakas` int NOT NULL,
   PRIMARY KEY (`idtilit`,`Asiakas_idAsiakas`),
   KEY `fk_Tilit_Asiakas1_idx` (`Asiakas_idAsiakas`),
@@ -98,7 +94,6 @@ CREATE TABLE `tilit` (
 
 LOCK TABLES `tilit` WRITE;
 /*!40000 ALTER TABLE `tilit` DISABLE KEYS */;
-INSERT INTO `tilit` VALUES (2,123456789,666,'credit','1000',2),(3,123456789,777,'debit',NULL,2),(4,987654321,3582,'debit',NULL,3),(5,547896321,-5000,'credit','10000',4),(6,421356789,50000,'debit',NULL,5),(7,431652789,10,'debit',NULL,6);
 /*!40000 ALTER TABLE `tilit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,11 +106,11 @@ DROP TABLE IF EXISTS `tilitapahtumat`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tilitapahtumat` (
   `idtilitapahtumat` int NOT NULL AUTO_INCREMENT,
-  `account_num` int DEFAULT NULL,
-  `kortin_numero` int DEFAULT NULL,
-  `pvm_ja_klo` int DEFAULT NULL,
-  `tapahtuma` varchar(45) DEFAULT NULL,
-  `summa` int DEFAULT NULL,
+  `account_num` varchar(255) DEFAULT NULL,
+  `kortin_numero` varchar(255) DEFAULT NULL,
+  `pvm_ja_klo` datetime DEFAULT NULL,
+  `tapahtuma` varchar(255) DEFAULT NULL,
+  `summa` varchar(255) DEFAULT NULL,
   `Tilit_idtilit` int NOT NULL,
   PRIMARY KEY (`idtilitapahtumat`,`Tilit_idtilit`),
   KEY `fk_Tilitapahtumat_Tilit1_idx` (`Tilit_idtilit`),
@@ -141,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-12 18:51:55
+-- Dump completed on 2021-11-15 18:11:06
