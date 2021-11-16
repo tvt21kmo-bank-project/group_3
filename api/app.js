@@ -10,6 +10,8 @@ var usersRouter = require('./routes/users');
 const asiakasRouter = require('./routes/asiakas');
 const tilitRouter = require('./routes/tilit');
 const korttiRouter = require('./routes/kortti');
+const loginRouter = require('./routes/login');
+const login = require('./models/login_model');
 
 
 
@@ -29,6 +31,7 @@ app.use('/users', usersRouter);
 app.use('/asiakas', asiakasRouter);
 app.use('/tilit', tilitRouter);
 app.use('/kortti', korttiRouter);
+app.use('/login', loginRouter);
 
 
 module.exports = app;
