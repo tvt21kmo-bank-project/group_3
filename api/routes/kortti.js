@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const tilit = require('../models/kortti_model');
+const pankki_kortti = require('../models/kortti_model');
 
 router.get('/:id?',
 function(request, response) {
     if (request.params.id) {
-        tilit.getById(request.params.id, function(err, dbResult) {
+        pankki_kortti.getById(request.params.id, function(err, dbResult) {
             if (err) {
                 response.json(err);
             } else {
@@ -13,7 +13,7 @@ function(request, response) {
             }
         });
     } else {
-        tilit.get(function(err, dbResult) {
+        pankki_kortti.get(function(err, dbResult) {
             if (err) {
                 response.json(err);
             } else {
@@ -25,7 +25,8 @@ function(request, response) {
 
 router.post('/',
 function(request, response) {
-    tilit.add(request.body, function(err, dbResult) {
+    console.log(request.body)
+    pankki_kortti.add(request.body, function(err, dbResult) {
         if (err) {
             response.json(err);
         } else {
@@ -36,7 +37,7 @@ function(request, response) {
 
 router.delete('/:id',
 function(request, response) {
-    tilit.delete(request.params.id, function(err, dbResult) {
+    pankki_kortti.delete(request.params.id, function(err, dbResult) {
         if (err) {
             response.json(err);
         } else {
@@ -47,7 +48,7 @@ function(request, response) {
 
 router.put('/:id',
 function (request, response) {
-    tilit.update(request.params.id, request.body, function(err, dbResult) {
+    pankki_kortti.update(request.params.id, request.body, function(err, dbResult) {
         if (err) {
             response.json(err);
         } else {
