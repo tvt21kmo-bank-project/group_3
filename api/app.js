@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const asiakasRouter = require('./routes/asiakas');
 const tilitRouter = require('./routes/tilit');
+const korttiRouter = require('./routes/kortti');
+
 
 
 var app = express();
@@ -26,6 +28,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/asiakas', asiakasRouter);
 app.use('/tilit', tilitRouter);
+app.use('/kortti', korttiRouter);
 
 
 module.exports = app;
