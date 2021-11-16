@@ -47,6 +47,7 @@ function(request, response) {
 
 router.put('/:id',
 function (request, response) {
+    console.log(request.body)
     asiakas.update(request.params.id, request.body, function(err, dbResult) {
         if (err) {
             response.json(err);
