@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->Display->setText("Tervetuloa Bankomaattiin ");
+    ui->Display->setText("Tervetuloa Bankomaattiin\n Syötä ID-numero ");
     //Alla oleva string tulostaa aloitus näytölle nollan jätetään vielä testaus mielessä koodiin.
    // ui->Display->setText(QString::number(Value));
     QPushButton *numButtons[10];
@@ -28,11 +28,12 @@ MainWindow::~MainWindow()
 void MainWindow::NumPressed() {
     QPushButton *button = (QPushButton *)sender();
     QString butVal = button->text();
-    QString displayVal = ui->Display->text();
-    if((displayVal.toDouble() == 0) || (displayVal.toDouble() == 0.0)){
-        ui->Display->setText(butVal);
+    ui->Display->setText(butVal);
+    if((butVal.toDouble() == 0) || (butVal.toDouble() == 0.0)){
+       ui->Display->setText(butVal);
     } else {
-        QString newVal = displayVal + butVal;
+        QString newVal = butVal;
+        newVal = newVal + butVal;
         double dbNewVal = newVal.toDouble();
         ui->Display->setText(QString::number(dbNewVal, 'g', 16));
 
