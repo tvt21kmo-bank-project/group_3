@@ -12,6 +12,7 @@ const tilitRouter = require('./routes/tilit');
 const korttiRouter = require('./routes/kortti');
 const loginRouter = require('./routes/login');
 const login = require('./models/login_model');
+var bankRouter = require('./routes/pankki');
 
 
 
@@ -32,6 +33,7 @@ app.use('/asiakas', asiakasRouter);
 app.use('/tilit', tilitRouter);
 app.use('/kortti', korttiRouter);
 app.use('/login', loginRouter);
+app.use('/bank', bankRouter);
 
 
 module.exports = app;
