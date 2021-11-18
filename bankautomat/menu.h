@@ -16,7 +16,6 @@ public:
     ~Menu();
 
 private slots:
-    void on_pushButton_clicked();
 
     void on_btnDebit_clicked();
 

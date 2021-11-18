@@ -120,7 +120,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     if(response_data=="true"){
         qDebug()<<"Oikea tunnus ...avaa form";
         objPankki->show();
-
+        this->close();
 
     }
     else {

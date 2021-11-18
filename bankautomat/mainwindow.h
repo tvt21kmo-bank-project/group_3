@@ -21,8 +21,6 @@ public:
     ~MainWindow();
 
 
-
-
 private slots:
     void on_btnMinus_clicked();
     void on_btn0_clicked();
