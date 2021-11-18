@@ -6,6 +6,7 @@ Nosto::Nosto(QWidget *parent) :
     ui(new Ui::Nosto)
 {
     ui->setupUi(this);
+
 }
 
 Nosto::~Nosto()
