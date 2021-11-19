@@ -1,6 +1,6 @@
 const db = require('../database');
 
-const tilitapahtumat={
+const nosto={
     get: function(callback) {
         return db.query('select * from tilitapahtumat', callback);
     },
@@ -9,4 +9,4 @@ const tilitapahtumat={
     },
 }
 
-module.exports = tilitapahtumat;
+module.exports = nosto;

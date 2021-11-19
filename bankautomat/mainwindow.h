@@ -24,6 +24,7 @@ public:
 
 private slots:
     void numero_painettu();//Slotti luotu numero näppäimien painamiselle//
+    //void Delete();
     void on_btnOK_clicked();
     void loginSlot (QNetworkReply *reply);
 
