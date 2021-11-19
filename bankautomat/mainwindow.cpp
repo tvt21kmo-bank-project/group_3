@@ -11,6 +11,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     objPankki=new Menu;
+    //tässä alla luodaan timer ja määritetään SIGNAL/SLOT yhteydet, jotta ohjelma tietää milloin sulkea ikkuna.
+    objTimer = new QTimer; // Timer-olion luominen. Itse timer käynnistetään alempana on_btnOK_clicked -funktiossa
+    connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu())); //pohjustetaan menu-ikkunan palaaMenuun() singaalin yhteys menuHuudettu() slottiin
+    connect(objTimer, SIGNAL(timeout()), this, SLOT(menuTimerSlotti())); //Timerin toimintaan vaadittava signaali, menuTimerSlotissa tapahtuu 30 sekunnin ajanotto
+    connect(this, SIGNAL(aikaLoppu()), objPankki, SLOT(aikaMeni())); //pohjustetaan MainWindown aikaLoppu() signaalin yhteys menu-ikkunan aikaMeni() slottiin
+    timerCounter = 0; //alustetaan ajan laskenta lähtemään nollasta
+
+
 //Käytetty Qt:n connect komentoa jolla voidaan yhdistää Signal ja slot.
 //Signal released on Qt:n omasta QPushbutton kirjastosta joten sitä ei ole määritetty erikeen se tulkitsee kun nappi vapautetaan.
    connect(ui->btn0,SIGNAL(released()),this,SLOT(numero_painettu()));
@@ -39,6 +47,7 @@ MainWindow::~MainWindow()
 void MainWindow::numero_painettu()
 {
  QPushButton* button = (QPushButton*)sender(); //Luodaan QPushbutton olio
+
 
 
  double Numero;
@@ -80,6 +89,8 @@ void MainWindow::on_btnOK_clicked()
     QString Seppo = json["ID_numero"].toString();
      qDebug()<<Seppo; //Tällä saadaan tili ID_numero talteen ?
 
+     objTimer->start(1000); //käynnistetään timer tässä, koska OK-painikkeen painamisen jälkeen siirrytään ensimmäiseen kellotettavaan ikkunaan
+
 
 
 }
@@ -92,7 +103,8 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     if(response_data=="true"){
         qDebug()<<"Oikea tunnus ...avaa form";
         objPankki->show();
-        this->hide();
+
+        //this->hide();
 
     }
     else {
@@ -102,6 +114,24 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 
     }
 }
+
+void MainWindow::menuTimerSlotti()
+{
+    timerCounter++; //timerCounter-muuttujan arvo kasvaa yhdellä joka sekunti
+    qDebug()<<timerCounter;
+    if(timerCounter == 10) // kun timerCounter saavuttaa arvon 30 sek,
+    {
+        emit aikaLoppu();   //niin aikaLoppu() -signaali lähetetään menu-luokan slottiin
+        objTimer->stop();
+        timerCounter = 0;
+    }
+}
+
+void MainWindow::menuHuudettu() //menu-luokasta tulee signaali tähän,
+{
+    objPankki->close();         //jolloin menu-ikkuna suljetaan
+}
+
 
 
 

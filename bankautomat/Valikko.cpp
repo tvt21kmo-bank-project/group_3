@@ -11,6 +11,10 @@ Valikko::Valikko(QWidget *parent) :
     objPadel = new Padelcoin;
     objSaldo = new Saldo;
     objTapahtumat = new Tilitapahtumat;
+    /*objTimer = new QTimer;
+    connect(objTimer, SIGNAL(timeout()), this, SLOT(menuTimerSlotti()));
+    timerCounter = 0;
+    objTimer->start(1000);*/
 
 
 }
@@ -53,4 +57,15 @@ void Valikko::on_btnULos_clicked()
 {
 
 }
+
+
+/*void Valikko::menuTimerSlotti()
+{
+    qDebug()<<timerCounter;
+    timerCounter++;
+    if(timerCounter == 10)
+    {
+        this->close();
+    }
+}*/
 

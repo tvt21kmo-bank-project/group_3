@@ -8,6 +8,8 @@
 #include <QtNetwork>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
+#include <QTimer>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,6 +35,17 @@ private:
    QNetworkAccessManager *loginManager;
    QNetworkReply *reply;
    Menu *objPankki;
+   QTimer *objTimer;
+   short timerCounter;
+
+public slots:
+    void menuTimerSlotti();
+    void menuHuudettu();
+
+signals:
+    void aikaLoppu();
+
+
 
 
 };
