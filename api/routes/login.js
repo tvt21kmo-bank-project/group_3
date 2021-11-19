@@ -18,8 +18,9 @@ router.post('/',
                 if(compareResult) {
                   console.log("Kirjautuminen onnistui!");
                   response.send(true);
+                  console.log(username);
                 }
-                else {
+                  else {
                     console.log("Väärä PIN.");
                     response.send(false);
                 }			

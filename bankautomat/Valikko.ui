@@ -206,7 +206,7 @@ QPushButton:pressed {
   <widget class="QLabel" name="lblTervehdys">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>90</x>
      <y>10</y>
      <width>581</width>
      <height>31</height>

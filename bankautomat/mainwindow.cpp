@@ -77,10 +77,17 @@ void MainWindow::on_btnOK_clicked()
     this, SLOT(loginSlot(QNetworkReply*)));
     reply = loginManager->post(request, QJsonDocument(json).toJson());
 
+    QString Seppo = json["ID_numero"].toString();
+     qDebug()<<Seppo; //Tällä saadaan tili ID_numero talteen ?
+
+
+
 }
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
     QByteArray response_data=reply->readAll();
+
+
     qDebug()<<response_data;
     if(response_data=="true"){
         qDebug()<<"Oikea tunnus ...avaa form";
@@ -91,7 +98,8 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     else {
         ui->Display1->setText("");
         ui->Display2->setText("");
-        qDebug()<<"tunnus ja salasana ei täsmää";
+
+
     }
 }
 
