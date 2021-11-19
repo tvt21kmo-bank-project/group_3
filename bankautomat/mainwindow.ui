@@ -264,38 +264,6 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item row="7" column="2">
-     <widget class="QPushButton" name="pushButton_12">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-
-  background-color:  #C0C0C0;
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
-    min-width: 10em;
-    padding: 6px;
-	color: black;
-}♣
-
-QPushButton:pressed {
-
-  background-color: #808080;
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
-    min-width: 10em;
-    padding: 6px;
-	color: black;
-}♣</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
     <item row="5" column="1">
      <widget class="QPushButton" name="btn2">
       <property name="styleSheet">
@@ -392,39 +360,14 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item row="7" column="0">
-     <widget class="QPushButton" name="pushButton_10">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-
-  background-color:  #C0C0C0;
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
-    min-width: 10em;
-    padding: 6px;
-	color: black;
-}♣
-
-QPushButton:pressed {
-
-  background-color: #808080;
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
-    min-width: 10em;
-    padding: 6px;
-	color: black;
-}♣</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="Display2">
+      <property name="maxLength">
+       <number>4</number>
       </property>
      </widget>
     </item>
-    <item row="8" column="2">
+    <item row="2" column="2">
      <widget class="QPushButton" name="btnOK">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -464,13 +407,6 @@ QPushButton:pressed {
     </item>
     <item row="0" column="1">
      <widget class="QLineEdit" name="Display1">
-      <property name="maxLength">
-       <number>4</number>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="Display2">
       <property name="maxLength">
        <number>4</number>
       </property>
