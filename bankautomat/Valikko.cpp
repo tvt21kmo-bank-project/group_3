@@ -12,6 +12,7 @@ Valikko::Valikko(QWidget *parent) :
     objSaldo = new Saldo;
     objTapahtumat = new Tilitapahtumat;
 
+
 }
 
 Valikko::~Valikko()
@@ -45,5 +46,11 @@ void Valikko::on_btnTilitapahtumat_clicked()
 {
     objTapahtumat->show();
     this->close();
+}
+
+
+void Valikko::on_btnULos_clicked()
+{
+
 }
 

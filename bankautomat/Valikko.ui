@@ -165,7 +165,7 @@ QPushButton:pressed {
     <string>Saldo</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="btnULos">
    <property name="geometry">
     <rect>
      <x>510</x>
