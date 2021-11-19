@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include<QPushButton> //Kirjasto paino nappien käyttöön
+
 
 
 
@@ -8,8 +10,19 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    objPankki=new Valikko;
-
+    objPankki=new Menu;
+//Käytetty Qt:n connect komentoa jolla voidaan yhdistää Signal ja slot.
+//Signal released on Qt:n omasta QPushbutton kirjastosta joten sitä ei ole määritetty erikeen se tulkitsee kun nappi vapautetaan.
+   connect(ui->btn0,SIGNAL(released()),this,SLOT(numero_painettu()));
+   connect(ui->btn1,SIGNAL(released()),this,SLOT(numero_painettu()));
+   connect(ui->btn2,SIGNAL(released()),this,SLOT(numero_painettu()));
+   connect(ui->btn3,SIGNAL(released()),this,SLOT(numero_painettu()));
+   connect(ui->btn4,SIGNAL(released()),this,SLOT(numero_painettu()));
+   connect(ui->btn5,SIGNAL(released()),this,SLOT(numero_painettu()));
+   connect(ui->btn6,SIGNAL(released()),this,SLOT(numero_painettu()));
+   connect(ui->btn7,SIGNAL(released()),this,SLOT(numero_painettu()));
+   connect(ui->btn8,SIGNAL(released()),this,SLOT(numero_painettu()));
+   connect(ui->btn9,SIGNAL(released()),this,SLOT(numero_painettu()));
 }
 
 MainWindow::~MainWindow()
@@ -20,80 +33,19 @@ MainWindow::~MainWindow()
     objPankki=nullptr;
 }
 
-
-void MainWindow::on_btnMinus_clicked()
+void MainWindow::numero_painettu()
 {
+ QPushButton* button = (QPushButton*)sender(); //Luodaan QPushbutton olio
 
-     ui->Display1->setText("-");
-      ui->Display2->setText("-");
-}
+ double Numero;//Double muuttuja jotta voidaan muuttaa Qstring arvo Double muotoon että Qt tajuaa laittaa seuraavan numeron äskeisen perään eri säilyttää arvon ruudulla
+ QString Uusi_numero; //QString muuttuja, että saadaan Double arvo tulostettua QStringillä :D LOL
 
+ Numero =(ui->Display1->text() + button->text()).toDouble();
 
-void MainWindow::on_btn0_clicked()
-{
+ Uusi_numero = QString::number(Numero);
 
-}
-
-
-void MainWindow::on_btnPlus_clicked()
-{
-
-}
-
-
-void MainWindow::on_btn1_clicked()
-{
-
-}
-
-
-void MainWindow::on_btn2_clicked()
-{
-
-}
-
-
-void MainWindow::on_btn3_clicked()
-{
-
-}
-
-
-void MainWindow::on_btn4_clicked()
-{
-
-}
-
-
-void MainWindow::on_btn5_clicked()
-{
-
-}
-
-
-void MainWindow::on_btn6_clicked()
-{
-
-}
-
-
-void MainWindow::on_btn7_clicked()
-{
-
-}
-
-
-void MainWindow::on_btn8_clicked()
-{
-
-}
-
-
-void MainWindow::on_btn9_clicked()
-{
-
-}
-
+ ui->Display1->setText(Uusi_numero);
+  }
 
 void MainWindow::on_btnOK_clicked()
 {
@@ -120,7 +72,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     if(response_data=="true"){
         qDebug()<<"Oikea tunnus ...avaa form";
         objPankki->show();
-        this->close();
+        this->hide();
 
     }
     else {
@@ -131,14 +83,5 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 }
 
 
-void MainWindow::on_btnRightArrow_clicked()
-{
 
-}
-
-
-void MainWindow::on_btnStop_clicked()
-{
-
-}
 

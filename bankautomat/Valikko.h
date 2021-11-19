@@ -32,6 +32,9 @@ private slots:
 
     void on_btnTilitapahtumat_clicked();
 
+
+    void on_btnULos_clicked();
+
 private:
     Ui::Valikko *ui;
     QNetworkAccessManager *creditManager;
@@ -41,6 +44,7 @@ private:
     Padelcoin *objPadel;
     Saldo *objSaldo;
     Tilitapahtumat *objTapahtumat;
+
 };
 
 #endif // VALIKKO_H

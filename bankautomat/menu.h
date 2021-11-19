@@ -2,6 +2,7 @@
 #define MENU_H
 
 #include <QDialog>
+#include "Valikko.h"
 
 namespace Ui {
 class Menu;
@@ -23,6 +24,8 @@ private slots:
 
 private:
     Ui::Menu *ui;
+    Valikko *objCredit;
+    Valikko *objDebit;
 };
 
 #endif // MENU_H

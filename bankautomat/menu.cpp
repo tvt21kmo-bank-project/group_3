@@ -6,6 +6,8 @@ Menu::Menu(QWidget *parent) :
     ui(new Ui::Menu)
 {
     ui->setupUi(this);
+    objCredit = new Valikko;
+    objDebit = new Valikko;
 }
 
 Menu::~Menu()
@@ -15,12 +17,14 @@ Menu::~Menu()
 
 void Menu::on_btnDebit_clicked()
 {
-
+    objDebit->show();
+    this->close();
 }
 
 
 void Menu::on_btnCredit_clicked()
 {
-
+    objCredit->show();
+    this->close();
 }
 
