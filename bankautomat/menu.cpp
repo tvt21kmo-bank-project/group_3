@@ -28,3 +28,8 @@ void Menu::on_btnCredit_clicked()
     this->close();
 }
 
+void Menu::aikaMeni() //aikaMeni on slotti, joka ottaa vastaan MainWindown menuTimerSlotin lähettämän signaalin kun 30 sekuntia on kulunut
+{
+    emit palaaMenuun(); //tässä vuorostaan lähtee signaali MainWindown menuHuudettu() -slottiin, jossa kutsutaan menu-ikkunan sulkemista
+}
+

@@ -26,6 +26,12 @@ private:
     Ui::Menu *ui;
     Valikko *objCredit;
     Valikko *objDebit;
+
+signals:
+    void palaaMenuun();
+
+public slots:
+    void aikaMeni();
 };
 
 #endif // MENU_H

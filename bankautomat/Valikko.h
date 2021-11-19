@@ -45,6 +45,11 @@ private:
     Saldo *objSaldo;
     Tilitapahtumat *objTapahtumat;
 
+
+
+
+
+
 };
 
 #endif // VALIKKO_H
