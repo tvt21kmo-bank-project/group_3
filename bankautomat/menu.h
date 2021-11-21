@@ -2,7 +2,7 @@
 #define MENU_H
 
 #include <QDialog>
-#include "Valikko.h"
+//#include "Valikko.h"
 
 namespace Ui {
 class Menu;
@@ -24,10 +24,12 @@ private slots:
 
 private:
     Ui::Menu *ui;
-    Valikko *objCredit;
-    Valikko *objDebit;
+    int timerNmbr;  //TÄMÄ MUUTTUJA LÄHETETÄÄN MAINWINDOWN timerReset() SLOTTIIN, JOTTA MAINWINDOW OSAA AVATA OIKEAN IKKUNAN (kts .cpp)
+
 
 signals:
+    void resetTimerDebit(int);  //SIGNAALI, JOKA VIE MAINWINDOWN resetTimer() -SLOTIIN MUUTTUJAN, JONKA ARVOLLA AUKEAA DEBITPUOLI
+    void resetTimerCredit(int); //SIGNAALI, JOKA VIE MAINWINDOWN resetTimer() -SLOTIIN MUUTTUJAN, JONKA ARVOLLA AUKEAA CREDITPUOLI
     void palaaMenuun();
 
 public slots:

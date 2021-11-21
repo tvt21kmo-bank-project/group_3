@@ -35,12 +35,20 @@ private:
    QNetworkAccessManager *loginManager;
    QNetworkReply *reply;
    Menu *objPankki;
+   //Valikko *objCredit;
+   Valikko *objDebit;
+   Nosto *objNosto;
+   Padelcoin *objPadel;
+   Saldo *objSaldo;
+   Tilitapahtumat *objTapahtumat;
    QTimer *objTimer;
    short timerCounter;
 
 public slots:
     void menuTimerSlotti();
+    void resetTimer(int);
     void menuHuudettu();
+
 
 signals:
     void aikaLoppu();
