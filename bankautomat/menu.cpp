@@ -6,26 +6,24 @@ Menu::Menu(QWidget *parent) :
     ui(new Ui::Menu)
 {
     ui->setupUi(this);
-    objCredit = new Valikko;
-    objDebit = new Valikko;
-}
+  }
 
 Menu::~Menu()
 {
     delete ui;
 }
-
 void Menu::on_btnDebit_clicked()
 {
-    objDebit->show();
-    this->close();
+    timerNmbr = 1;                   //ANNETAAN timerNmbr -MUUTTUJALLE ARVO 1
+    emit resetTimerDebit(timerNmbr); //VIEDÄÄN SIGNAALIN MUKANA timerNmbr -MUUTTUJAN DEBITIÄ VASTAAVA ARVO (1) MAINWINDOWN resetTimer() -SLOTIIN
 }
 
 
 void Menu::on_btnCredit_clicked()
 {
-    objCredit->show();
-    this->close();
+
+    //timerNmbr = 2;
+    //emit resetTimerCredit(timerNmbr);
 }
 
 void Menu::aikaMeni() //aikaMeni on slotti, joka ottaa vastaan MainWindown menuTimerSlotin lähettämän signaalin kun 30 sekuntia on kulunut
