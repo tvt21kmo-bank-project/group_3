@@ -7,14 +7,8 @@ Valikko::Valikko(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lblTervehdys->setText("Tähän pitäisi tulostua käyttäjän nimi");
-    objNosto = new Nosto;
-    objPadel = new Padelcoin;
-    objSaldo = new Saldo;
-    objTapahtumat = new Tilitapahtumat;
-    /*objTimer = new QTimer;
-    connect(objTimer, SIGNAL(timeout()), this, SLOT(menuTimerSlotti()));
-    timerCounter = 0;
-    objTimer->start(1000);*/
+
+
 
 
 }
@@ -27,45 +21,40 @@ Valikko::~Valikko()
 
 void Valikko::on_btnNosto_clicked()
 {
-    objNosto->show();
-    this->close();
+    timerNmbr = 3;
+    emit resetTimerNosto(timerNmbr);
 }
 
 
 void Valikko::on_btnPadelCoin_clicked()
 {
-    objPadel->show();
-    this->close();
+    timerNmbr = 4;
+    emit resetTimerPadel(timerNmbr);
 }
 
 
 void Valikko::on_btnSaldo_clicked()
 {
-    objSaldo->show();
-    this->close();
+    timerNmbr = 5;
+    emit resetTimerSaldo(timerNmbr);
 }
 
 
 void Valikko::on_btnTilitapahtumat_clicked()
 {
-    objTapahtumat->show();
-    this->close();
+    timerNmbr = 6;
+    emit resetTimerTapahtumat(timerNmbr);
 }
 
 
 void Valikko::on_btnULos_clicked()
 {
-
+    timerNmbr = 7;
+    emit resetTimerUlos(timerNmbr);
 }
 
 
-/*void Valikko::menuTimerSlotti()
-{
-    qDebug()<<timerCounter;
-    timerCounter++;
-    if(timerCounter == 10)
-    {
-        this->close();
-    }
-}*/
+
+
+
 

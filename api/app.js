@@ -15,6 +15,7 @@ const login = require('./models/login_model');
 var bankRouter = require('./routes/pankki');
 const tilitapahtumatRouter = require('./routes/tilitapahtumat');
 const nostoRouter = require('./routes/nosto');
+const saldoRouter = require('./routes/saldo');
 
 
 
@@ -39,7 +40,7 @@ app.use('/login', loginRouter);
 app.use('/bank', bankRouter);
 app.use('/tilitapahtumat', tilitapahtumatRouter);
 app.use('/nosto', nostoRouter);
-
+app.use('/saldo', saldoRouter);
 
 
 module.exports = app;
