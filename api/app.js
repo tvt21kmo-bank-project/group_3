@@ -42,5 +42,4 @@ app.use('/tilitapahtumat', tilitapahtumatRouter);
 app.use('/nosto', nostoRouter);
 app.use('/saldo', saldoRouter);
 
-
 module.exports = app;
