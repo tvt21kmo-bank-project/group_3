@@ -40,12 +40,14 @@ private:
     QNetworkAccessManager *creditManager;
     QNetworkAccessManager *debitManager;
     QNetworkReply *reply;
-    Nosto *objNosto;
-    Padelcoin *objPadel;
-    Saldo *objSaldo;
-    Tilitapahtumat *objTapahtumat;
+    int timerNmbr;
 
-
+signals:
+    void resetTimerNosto(int);
+    void resetTimerPadel(int);
+    void resetTimerSaldo(int);
+    void resetTimerTapahtumat(int);
+    void resetTimerUlos(int);
 
 
 

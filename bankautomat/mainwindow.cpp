@@ -10,13 +10,36 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // LUODAAN KAIKKIEN MUIDEN LUOKKIEN OLIOT MAINWINDOWIIN, JOLLOIN NIIDEN AVAAMINEN TAPAHTUU AINA SAMAN LUOKAN KAUTTA.
+    // KANNATTAA TSEKATA menu.h JA .cpp, KOSKA NIISTÄ SELVIÄÄ TARKEMMIN MITEN TIMER TOIMII SIGNAL/SLOT MENETELMÄLLÄ
+
     objPankki=new Menu;
+    objDebit = new Valikko;
+    //obj Credit = ...
+    objNosto = new Nosto;
+    objPadel = new Padelcoin;
+    objSaldo = new Saldo;
+    objTapahtumat = new Tilitapahtumat;
+
     //tässä alla luodaan timer ja määritetään SIGNAL/SLOT yhteydet, jotta ohjelma tietää milloin sulkea ikkuna.
-    objTimer = new QTimer; // Timer-olion luominen. Itse timer käynnistetään alempana on_btnOK_clicked -funktiossa
-    connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu())); //pohjustetaan menu-ikkunan palaaMenuun() singaalin yhteys menuHuudettu() slottiin
-    connect(objTimer, SIGNAL(timeout()), this, SLOT(menuTimerSlotti())); //Timerin toimintaan vaadittava signaali, menuTimerSlotissa tapahtuu 30 sekunnin ajanotto
-    connect(this, SIGNAL(aikaLoppu()), objPankki, SLOT(aikaMeni())); //pohjustetaan MainWindown aikaLoppu() signaalin yhteys menu-ikkunan aikaMeni() slottiin
-    timerCounter = 0; //alustetaan ajan laskenta lähtemään nollasta
+    objTimer = new QTimer;// Timer-olion luominen. Itse timer käynnistetään alempana on_btnOK_clicked -funktiossa
+
+
+
+    // SIGNAL/SLOT YHTEYKSIEN MÄÄRITTELYT:
+
+        connect(objTimer, SIGNAL(timeout()), this, SLOT(menuTimerSlotti())); //Timerin toimintaan vaadittava signaali, menuTimerSlotissa tapahtuu 30 sekunnin ajanotto
+        QObject::connect(objPankki, SIGNAL(resetTimerDebit(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objDebit, SIGNAL(resetTimerNosto(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objDebit, SIGNAL(resetTimerPadel(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objDebit, SIGNAL(resetTimerSaldo(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objDebit, SIGNAL(resetTimerTapahtumat(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objDebit, SIGNAL(resetTimerUlos(int)), this, SLOT(resetTimer(int)));
+        connect(this, SIGNAL(aikaLoppu()), objPankki, SLOT(aikaMeni()));    //pohjustetaan MainWindown aikaLoppu() signaalin yhteys menu-ikkunan aikaMeni() slottiin
+        connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu()));
+
+        timerCounter = 0;                                                   //alustetaan ajan laskenta lähtemään nollasta
 
 
 //Käytetty Qt:n connect komentoa jolla voidaan yhdistää Signal ja slot.
@@ -90,6 +113,8 @@ void MainWindow::on_btnOK_clicked()
      qDebug()<<Seppo; //Tällä saadaan tili ID_numero talteen ?
 
      objTimer->start(1000); //käynnistetään timer tässä, koska OK-painikkeen painamisen jälkeen siirrytään ensimmäiseen kellotettavaan ikkunaan
+     ui->Display1->setText("");
+     ui->Display2->setText("");
 
 
 
@@ -104,7 +129,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
         qDebug()<<"Oikea tunnus ...avaa form";
         objPankki->show();
 
-        //this->hide();
+
 
     }
     else {
@@ -119,7 +144,7 @@ void MainWindow::menuTimerSlotti()
 {
     timerCounter++; //timerCounter-muuttujan arvo kasvaa yhdellä joka sekunti
     qDebug()<<timerCounter;
-    if(timerCounter == 10) // kun timerCounter saavuttaa arvon 30 sek,
+    if(timerCounter == 5) // kun timerCounter saavuttaa arvon 30 sek, (tai tässä testimielessä 5 sek)
     {
         emit aikaLoppu();   //niin aikaLoppu() -signaali lähetetään menu-luokan slottiin
         objTimer->stop();
@@ -127,12 +152,61 @@ void MainWindow::menuTimerSlotti()
     }
 }
 
-void MainWindow::menuHuudettu() //menu-luokasta tulee signaali tähän,
+void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHETETÄÄN SIGNAALIN MUKANA MUUTTUJA, JONKA ARVO MÄÄRITTÄÄ MIKÄ IKKUNA AUKAISTAAN
 {
-    objPankki->close();         //jolloin menu-ikkuna suljetaan
+    timerCounter = 0;
+    if(jokuIkkuna == 1)  //esimerkiksi tässä, menu-luokan on_btnDebit_clicked() -funktio lähettää signaalin mukana arvon 1, joka
+    {                    //menee jokuIkkuna -muuttujaan. jokuIkkuna -muuttujan arvo määrittää mitä tässä funktiossa tehdään.
+        objPankki->close();
+        objDebit->show();
+        objTimer->start();
+    }
+    if(jokuIkkuna == 2)
+    {
+        objPankki->close();
+        //objCredit->show();
+        objTimer->start();
+    }
+    if(jokuIkkuna == 3)
+    {
+        objDebit->close();
+        objNosto->show();
+        objTimer->start();
+    }
+    if(jokuIkkuna == 4)
+    {
+        objDebit->close();
+        objPadel->show();
+        objTimer->start();
+    }
+    if(jokuIkkuna == 5)
+    {
+        objDebit->close();
+        objSaldo->show();
+        objTimer->start();
+    }
+    if(jokuIkkuna == 6)
+    {
+        objDebit->close();
+        objTapahtumat->show();
+        objTimer->start();
+    }
+    if(jokuIkkuna == 7)
+    {
+        objDebit->close();
+        objTimer->stop();
+    }
+
 }
 
-
-
+void MainWindow::menuHuudettu() //MENU-LUOKKA LÄHETTÄÄ SIGNAALIN TÄHÄN SLOTTIIN. IHAN SAMA MIKÄ IKKUNA AUKI, KAIKKI SULKEUTUU KUN AIKA ON KULUNUT.
+{
+    objPankki->close();
+    objDebit->close();
+    objNosto->close();
+    objPadel->close();
+    objSaldo->close();
+    objTapahtumat->close();
+}
 
 

@@ -28,6 +28,8 @@ private:
     Valikko *objDebit;
 
 signals:
+    void resetTimerDebit(int);  //SIGNAALI, JOKA VIE MAINWINDOWN resetTimer() -SLOTIIN MUUTTUJAN, JONKA ARVOLLA AUKEAA DEBITPUOLI
+    void resetTimerCredit(int); //SIGNAALI, JOKA VIE MAINWINDOWN resetTimer() -SLOTIIN MUUTTUJAN, JONKA ARVOLLA AUKEAA CREDITPUOLI
     void palaaMenuun();
 
 public slots:

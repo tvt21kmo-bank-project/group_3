@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="btnDebit">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>150</y>
+     <x>50</x>
+     <y>180</y>
      <width>251</width>
      <height>81</height>
     </rect>
@@ -54,8 +54,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btnCredit">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>150</y>
+     <x>410</x>
+     <y>180</y>
      <width>261</width>
      <height>81</height>
     </rect>

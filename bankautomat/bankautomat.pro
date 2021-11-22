@@ -15,27 +15,33 @@ SOURCES += \
     mainwindow.cpp \
     menu.cpp \
     nosto.cpp \
+    nosto_credit.cpp \
     padelcoin.cpp \
     saldo.cpp \
-    tilitapahtumat.cpp
+    tilitapahtumat.cpp \
+    valikko_credit.cpp
 
 HEADERS += \
     Valikko.h \
     mainwindow.h \
     menu.h \
     nosto.h \
+    nosto_credit.h \
     padelcoin.h \
     saldo.h \
-    tilitapahtumat.h
+    tilitapahtumat.h \
+    valikko_credit.h
 
 FORMS += \
     Valikko.ui \
     mainwindow.ui \
     menu.ui \
     nosto.ui \
+    nosto_credit.ui \
     padelcoin.ui \
     saldo.ui \
-    tilitapahtumat.ui
+    tilitapahtumat.ui \
+    valikko_credit.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
