@@ -5,13 +5,17 @@ var logger = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
 
+
+
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const asiakasRouter = require('./routes/asiakas');
 const tilitRouter = require('./routes/tilit');
 const korttiRouter = require('./routes/kortti');
 const loginRouter = require('./routes/login');
-const login = require('./models/login_model');
+const ID_numeroRouter = require('./routes/ID_numero');
 var bankRouter = require('./routes/pankki');
 const tilitapahtumatRouter = require('./routes/tilitapahtumat');
 const nostoRouter = require('./routes/nosto');
@@ -37,6 +41,7 @@ app.use('/asiakas', asiakasRouter);
 app.use('/tilit', tilitRouter);
 app.use('/kortti', korttiRouter);
 app.use('/login', loginRouter);
+app.use('/ID_numero', ID_numeroRouter);
 app.use('/bank', bankRouter);
 app.use('/tilitapahtumat', tilitapahtumatRouter);
 app.use('/nosto', nostoRouter);

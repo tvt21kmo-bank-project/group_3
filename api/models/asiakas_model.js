@@ -1,7 +1,5 @@
  const db = require('../database');
-//const bcrypt = require('bcryptjs');
 
-//const saltRounds = 10;
 const asiakas={
     get: function(callback) {
         return db.query('select * from asiakas', callback);

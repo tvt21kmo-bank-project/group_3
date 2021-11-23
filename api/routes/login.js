@@ -2,12 +2,15 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const login = require('../models/login_model');
+const tiedot = require('../models/tiedot_model');
 
 router.post('/', 
   function(request, response) {
     if(request.body.ID_numero && request.body.Pin){
       const username = request.body.ID_numero;
       const password = request.body.Pin;
+    
+    
         login.checkPassword(username, function(dbError, dbResult) {
           if(dbError){
             response.json(dbError);
@@ -19,6 +22,7 @@ router.post('/',
                   console.log("Kirjautuminen onnistui!");
                   response.send(true);
                   console.log(username);
+                
                 }
                   else {
                     console.log("Väärä PIN.");

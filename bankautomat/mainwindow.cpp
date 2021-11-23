@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     objPadel = new Padelcoin;
     objSaldo = new Saldo;
     objTapahtumat = new Tilitapahtumat;
+    objtilit =new idtilit_tulostus;
 
     //tässä alla luodaan timer ja määritetään SIGNAL/SLOT yhteydet, jotta ohjelma tietää milloin sulkea ikkuna.
     objTimer = new QTimer;// Timer-olion luominen. Itse timer käynnistetään alempana on_btnOK_clicked -funktiossa
@@ -36,8 +37,11 @@ MainWindow::MainWindow(QWidget *parent)
         QObject::connect(objDebit, SIGNAL(resetTimerSaldo(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerTapahtumat(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerUlos(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objDebit, SIGNAL(resetTimerTiedot(int)), this, SLOT(resetTimer(int)));
         connect(this, SIGNAL(aikaLoppu()), objPankki, SLOT(aikaMeni()));    //pohjustetaan MainWindown aikaLoppu() signaalin yhteys menu-ikkunan aikaMeni() slottiin
         connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu()));
+       // ALLA TIEDON SAIIRTO SEKOILUA
+        connect(this, SIGNAL(signalKirjautuminen(const QString &)),objDebit , SLOT(Pihlajakatu(const QString &)));//Lähetetään kirjautumis ID_numero signaalilla valikkoon
 
         timerCounter = 0;                                                   //alustetaan ajan laskenta lähtemään nollasta
 
@@ -110,7 +114,8 @@ void MainWindow::on_btnOK_clicked()
     reply = loginManager->post(request, QJsonDocument(json).toJson());
 
     QString Seppo = json["ID_numero"].toString();
-     qDebug()<<Seppo; //Tällä saadaan tili ID_numero talteen ?
+    Taalasmaa = Seppo;//Korvastaan Seppo Taalasmaa objektilla jota toivottavasti voidaan lähetellä ympäriinsä
+     qDebug()<<Taalasmaa; //Tällä saadaan tili ID_numero talteen ?
 
      objTimer->start(1000); //käynnistetään timer tässä, koska OK-painikkeen painamisen jälkeen siirrytään ensimmäiseen kellotettavaan ikkunaan
      ui->Display1->setText("");
@@ -127,6 +132,9 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     qDebug()<<response_data;
     if(response_data=="true"){
         qDebug()<<"Oikea tunnus ...avaa form";
+
+        emit signalKirjautuminen(Taalasmaa);//Lähetetään signaali kirjautuminen jota sisältää objektin Taalasmaa jossa on ID_numero.
+
         objPankki->show();
 
 
@@ -196,6 +204,14 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
         objDebit->close();
         objTimer->stop();
     }
+
+    if(jokuIkkuna == 8)
+    {
+        objDebit->close();
+        objtilit->show();
+        objTimer->stop();
+    }
+
 
 }
 

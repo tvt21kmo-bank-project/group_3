@@ -6,7 +6,8 @@ Valikko::Valikko(QWidget *parent) :
     ui(new Ui::Valikko)
 {
     ui->setupUi(this);
-    ui->lblTervehdys->setText("Tähän pitäisi tulostua käyttäjän nimi");
+    connect(this, SIGNAL(signalKirjautuminen(const QString &)),this, SLOT(Pihlajakatu(const QString &)));
+    ui->lblTervehdys->setText(Ulla);
 
 
 
@@ -56,5 +57,17 @@ void Valikko::on_btnULos_clicked()
 
 
 
+void Valikko::on_btnpenus_clicked()
+{
+ qDebug()<<Ulla;
+    timerNmbr = 8;
+    emit resetTimerUlos(timerNmbr);
 
+}
+
+void Valikko::Pihlajakatu(const QString &Taalasmaa)
+{
+   Ulla = Taalasmaa;
+
+}
 
