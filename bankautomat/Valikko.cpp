@@ -6,7 +6,7 @@ Valikko::Valikko(QWidget *parent) :
     ui(new Ui::Valikko)
 {
     ui->setupUi(this);
-    connect(this, SIGNAL(signalKirjautuminen(const QString &)),this, SLOT(Pihlajakatu(const QString &)));
+
 
 }
 
@@ -64,7 +64,15 @@ void Valikko::on_btnpenus_clicked()
 void Valikko::Pihlajakatu(const QString &Taalasmaa)
 {
    Ulla = Taalasmaa;
-   ui->lblTervehdys->setText(Ulla);
+   //ui->lblTervehdys->setText(Ulla);
 
+}
+
+void Valikko::Paa(const QString &Lasse)
+{
+
+    Hanska = Lasse;
+    qDebug()<<Hanska;
+    ui->lblTervehdys->setText("terve" + Hanska);
 }
 

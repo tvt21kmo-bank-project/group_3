@@ -46,15 +46,18 @@ private:
    QTimer *objTimer;
    short timerCounter;
    QString Taalasmaa;
+   QString Lasse;
 
 public slots:
     void menuTimerSlotti();
     void resetTimer(int);
     void menuHuudettu();
+    void IsmonValinta(const QString &);
 
 signals:
     void aikaLoppu();
     void signalKirjautuminen(const QString &);
+    void signalLakki(const QString &);
 
 
 
