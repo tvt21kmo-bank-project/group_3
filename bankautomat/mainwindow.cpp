@@ -38,6 +38,10 @@ MainWindow::MainWindow(QWidget *parent)
         QObject::connect(objDebit, SIGNAL(resetTimerTapahtumat(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerUlos(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerTiedot(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objNosto, SIGNAL(resetTimerNostostaValikkoon(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objPadel, SIGNAL(resetTimerPadelistaValikkoon(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objSaldo, SIGNAL(resetTimerSaldostaValikkoon(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objTapahtumat, SIGNAL(resetTimerTapahtumistaValikkoon(int)), this, SLOT(resetTimer(int)));
         connect(this, SIGNAL(aikaLoppu()), objPankki, SLOT(aikaMeni()));    //pohjustetaan MainWindown aikaLoppu() signaalin yhteys menu-ikkunan aikaMeni() slottiin
         connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu()));
        // ALLA TIEDON SAIIRTO SEKOILUA
@@ -208,12 +212,36 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
 
     if(jokuIkkuna == 8)
     {
-        objDebit->close();
-        objtilit->show();
-        objTimer->stop();
-    }
+           objNosto->close();
+           objDebit->show();
+           objTimer->start();
+       }
+       if(jokuIkkuna == 9)
+       {
+           objPadel->close();
+           objDebit->show();
+           objTimer->start();
+       }
+       if(jokuIkkuna == 10)
+       {
+           objSaldo->close();
+           objDebit->show();
+           objTimer->start();
+       }
+       if(jokuIkkuna == 11)
+       {
+           objTapahtumat->close();
+           objDebit->show();
+           objTimer->start();
+       }
+
+       if(jokuIkkuna == 666)
+       {
+           objDebit->close();
+           objtilit->show();
 
 
+}
 }
 
 void MainWindow::menuHuudettu() //MENU-LUOKKA LÄHETTÄÄ SIGNAALIN TÄHÄN SLOTTIIN. IHAN SAMA MIKÄ IKKUNA AUKI, KAIKKI SULKEUTUU KUN AIKA ON KULUNUT.

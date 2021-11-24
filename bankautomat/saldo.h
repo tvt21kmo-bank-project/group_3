@@ -20,6 +20,10 @@ private slots:
 
 private:
     Ui::Saldo *ui;
+    int timerNmbr;
+
+signals:
+    void resetTimerSaldostaValikkoon(int);
 };
 
 #endif // SALDO_H
