@@ -27,7 +27,7 @@ CREATE TABLE `asiakas` (
   `Etunimi` varchar(45) DEFAULT NULL,
   `Sukunimi` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idasiakas`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `asiakas` (
 
 LOCK TABLES `asiakas` WRITE;
 /*!40000 ALTER TABLE `asiakas` DISABLE KEYS */;
-INSERT INTO `asiakas` VALUES (9,'Seppo','Taalasmaa'),(10,'Seppo','Taalasmaa'),(11,'Teppo','Tulppu'),(12,'Tupu','Ankka'),(13,'Pipsa','Possu'),(14,'Kerkko','Koira');
+INSERT INTO `asiakas` VALUES (15,'Lol','Mies'),(16,'Kari','Mies');
 /*!40000 ALTER TABLE `asiakas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,9 +75,8 @@ DROP TABLE IF EXISTS `pankki_kortti`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pankki_kortti` (
-  `ID_numero` varchar(45) DEFAULT NULL,
-  `Pin` varchar(255) DEFAULT NULL,
   `idtilit` int NOT NULL,
+  `Pin` varchar(255) DEFAULT NULL,
   `idasiakas` int NOT NULL,
   KEY `fk_pankki_kortti_tilit1_idx` (`idtilit`),
   KEY `fk_pankki_kortti_asiakas1_idx` (`idasiakas`),
@@ -92,7 +91,7 @@ CREATE TABLE `pankki_kortti` (
 
 LOCK TABLES `pankki_kortti` WRITE;
 /*!40000 ALTER TABLE `pankki_kortti` DISABLE KEYS */;
-INSERT INTO `pankki_kortti` VALUES ('1234','4321',10,10),('7777','$2a$10$5JialZfhDSjXztUlHD28w.G8FUOqIJJvak6sfk1KmSuXvHCILBHXq',11,10),('1705','$2a$10$BB9g51YGycWVPe6tQshQReHImTHmg9temelkC18k9dG7NFlqJgiIO',13,12);
+INSERT INTO `pankki_kortti` VALUES (1002,'$2a$10$klYTNKaZlYO74tgUcea2nuxdKwEvUfsmYQXE0VHO/PEDLi5DVPrfG',15),(1003,'$2a$10$qGF99zsGtK/6dNtlA92BTOKFiI/9JsdPhELxJa9OuxF0lqvl1MSuq',16);
 /*!40000 ALTER TABLE `pankki_kortti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +110,7 @@ CREATE TABLE `tilit` (
   `Kortin_tyyppi` varchar(45) DEFAULT NULL,
   `Luottoraja` float DEFAULT NULL,
   PRIMARY KEY (`idtilit`)
-) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1004 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +119,7 @@ CREATE TABLE `tilit` (
 
 LOCK TABLES `tilit` WRITE;
 /*!40000 ALTER TABLE `tilit` DISABLE KEYS */;
-INSERT INTO `tilit` VALUES (10,10,'4321',69,'credit',6000),(11,12,'7777',500,'credit',5000),(12,11,'7777',-600,'credit',5000),(13,12,'313',411150,'credit',2000),(14,13,'666',60500,'debit',0),(15,12,'5555',5000,'credit',6000),(999,999,'9999',30010,'debit',NULL);
+INSERT INTO `tilit` VALUES (1002,12,'5555',5500,'credit',6000),(1003,13,'5555',4500,'credit',6000);
 /*!40000 ALTER TABLE `tilit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +140,7 @@ CREATE TABLE `tilitapahtumat` (
   PRIMARY KEY (`idtilitapahtumat`),
   KEY `fk_tilitapahtumat_tilit1_idx` (`idtilit`),
   CONSTRAINT `fk_tilitapahtumat_tilit1` FOREIGN KEY (`idtilit`) REFERENCES `tilit` (`idtilit`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +149,7 @@ CREATE TABLE `tilitapahtumat` (
 
 LOCK TABLES `tilitapahtumat` WRITE;
 /*!40000 ALTER TABLE `tilitapahtumat` DISABLE KEYS */;
-INSERT INTO `tilitapahtumat` VALUES (1,'2021-11-16 19:43:30','withdrawal','300',NULL,12),(2,'2021-11-16 19:45:05','withdrawal','300',NULL,12),(3,'2021-11-16 19:45:05','deposit','300',NULL,13),(4,'2021-11-16 19:46:02','withdrawal','500000',NULL,12),(5,'2021-11-16 19:46:02','deposit','500000',NULL,13),(6,'2021-11-16 19:58:29','withdrawal','500',NULL,14),(7,'2021-11-16 19:58:29','deposit','500',NULL,13),(8,'2021-11-16 19:59:51','withdrawal','200',NULL,14),(9,'2021-11-16 19:59:51','deposit','200',NULL,13),(10,'2021-11-17 09:33:21','withdrawal','300',NULL,14),(11,'2021-11-17 09:33:21','deposit','300',NULL,13),(12,'2021-11-17 09:51:08','withdrawal','50000',NULL,13),(13,'2021-11-17 09:51:08','deposit','50000',NULL,11),(14,'2021-11-17 09:53:57','withdrawal','50000',NULL,11),(15,'2021-11-17 09:53:57','deposit','50000',NULL,14),(16,'2021-11-17 11:32:23','withdrawal','50000',NULL,13),(17,'2021-11-17 11:32:23','deposit','50000',NULL,14),(18,'2021-11-17 11:35:12','withdrawal','500',NULL,14),(19,'2021-11-17 11:35:12','deposit','500',NULL,13),(20,'2021-11-17 11:35:37','withdrawal','9000',NULL,14),(21,'2021-11-17 11:35:37','deposit','9000',NULL,13),(22,'2021-11-19 16:06:50','withdrawal','30000',NULL,14),(23,'2021-11-19 16:06:50','deposit','30000',NULL,999);
+INSERT INTO `tilitapahtumat` VALUES (27,'2021-11-24 11:11:45','withdrawal','500',NULL,1003),(28,'2021-11-24 11:11:45','deposit','500',NULL,1002);
 /*!40000 ALTER TABLE `tilitapahtumat` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -163,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-19 16:17:10
+-- Dump completed on 2021-11-24 11:27:24
