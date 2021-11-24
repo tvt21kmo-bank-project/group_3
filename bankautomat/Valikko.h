@@ -4,10 +4,13 @@
 #include "padelcoin.h"
 #include "saldo.h"
 #include "tilitapahtumat.h"
+#include "idtilit_tulostus.h"
 #include <QDialog>
 #include <QtNetwork>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
+#include <QFile>
+#include <QTextStream>
 
 namespace Ui {
 class Valikko;
@@ -21,8 +24,11 @@ public:
     explicit Valikko(QWidget *parent = nullptr);
     ~Valikko();
 
+public slots:
+
+    void Pihlajakatu(const QString &);
+
 private slots:
-    //void on_pushButton_clicked();
 
     void on_btnNosto_clicked();
 
@@ -35,14 +41,19 @@ private slots:
 
     void on_btnULos_clicked();
 
+    void on_btnpenus_clicked();
+
+
 private:
     Ui::Valikko *ui;
     QNetworkAccessManager *creditManager;
     QNetworkAccessManager *debitManager;
     QNetworkReply *reply;
     int timerNmbr;
+    QString Ulla;
 
 signals:
+    void signalKirjautuminen();
     void resetTimerNosto(int);
     void resetTimerPadel(int);
     void resetTimerSaldo(int);

@@ -9,6 +9,8 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QTimer>
+#include <QFile>
+#include <QTextStream>
 
 
 QT_BEGIN_NAMESPACE
@@ -35,7 +37,7 @@ private:
    QNetworkAccessManager *loginManager;
    QNetworkReply *reply;
    Menu *objPankki;
-   //Valikko *objCredit;
+   idtilit_tulostus *objtilit;
    Valikko *objDebit;
    Nosto *objNosto;
    Padelcoin *objPadel;
@@ -43,6 +45,7 @@ private:
    Tilitapahtumat *objTapahtumat;
    QTimer *objTimer;
    short timerCounter;
+   QString Taalasmaa;
 
 public slots:
     void menuTimerSlotti();
@@ -51,6 +54,7 @@ public slots:
 
 signals:
     void aikaLoppu();
+    void signalKirjautuminen(const QString &);
 
 
 

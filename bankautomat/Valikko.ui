@@ -276,6 +276,19 @@ QPushButton:pressed {
     <string>TextLabel</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnpenus">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>330</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>penus</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

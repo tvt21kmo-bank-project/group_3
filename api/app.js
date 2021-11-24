@@ -5,13 +5,16 @@ var logger = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
 
+
+
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const asiakasRouter = require('./routes/asiakas');
 const tilitRouter = require('./routes/tilit');
 const korttiRouter = require('./routes/kortti');
 const loginRouter = require('./routes/login');
-const login = require('./models/login_model');
 var bankRouter = require('./routes/pankki');
 const tilitapahtumatRouter = require('./routes/tilitapahtumat');
 const nostoRouter = require('./routes/nosto');
