@@ -54,7 +54,6 @@ public slots:
 
 signals:
     void aikaLoppu();
-     void signalKirjaudu();
     void signalKirjautuminen(const QString &);
 
 

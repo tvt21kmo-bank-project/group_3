@@ -6,11 +6,18 @@ idtilit_tulostus::idtilit_tulostus(QWidget *parent) :
     ui(new Ui::idtilit_tulostus)
 {
     ui->setupUi(this);
+    connect(this, SIGNAL(signalKirjautuminen(const QString &)),this, SLOT(Ismo(const QString &)));
 }
 
 idtilit_tulostus::~idtilit_tulostus()
 {
     delete ui;
+}
+
+void idtilit_tulostus::Ismo(const QString &Taalasmaa)
+{
+    Kari = Taalasmaa;
+    //qDebug()<<Kari;
 }
 
 void idtilit_tulostus::Hae(QNetworkReply *reply)
@@ -22,17 +29,18 @@ void idtilit_tulostus::Hae(QNetworkReply *reply)
     QString tiedot;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    tiedot+=QString::number(json_obj["idtilit"].toInt())+","+json_obj["idasiakas"].toString()+",\r";
+    tiedot+=QString::number(json_obj["idtilit"].toInt())+","+json_obj["idasiakas"].toInt()+",\r";
     }
-    qDebug()<<tiedot;
+    //qDebug()<<;
     ui->txtTiedot->setText(tiedot);
     reply->deleteLater();
-    tulosta_tiedot->deleteLater();
+
 }
 
 void idtilit_tulostus::on_btnHaeTiedot_clicked()
 {
-    QString site_url="http://localhost:3000/ID_numero";
+    QJsonObject json;
+    QString site_url="http://localhost:3000/kortti/" + Kari;
     QString credentials="pankki_admin:bosspankki";
     QNetworkRequest request((site_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
@@ -41,7 +49,8 @@ void idtilit_tulostus::on_btnHaeTiedot_clicked()
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
     tulosta_tiedot = new QNetworkAccessManager(this);
     connect(tulosta_tiedot, SIGNAL(finished (QNetworkReply*)),
-    this, SLOT(getHae(QNetworkReply*)));
+    this, SLOT(Hae(QNetworkReply*)));
     reply = tulosta_tiedot->get(request);
+    //Sepi=json["idasiakas"];
 }
 

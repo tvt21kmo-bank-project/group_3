@@ -7,12 +7,12 @@ const pankki_kortti={
     return db.query('select * from pankki_kortti', callback);
   },
   getById: function(id, callback) {
-    return db.query('select * from pankki_kortti where idtilit=?', [id], callback);
+    return db.query('select idasiakas from pankki_kortti where idtilit=?', [ id], callback);
   },
   add: function(pankki_kortti, callback) {
     bcrypt.hash(pankki_kortti.Pin, saltRounds, function(err, hash) {
-      return db.query('insert into pankki_kortti (ID_numero, Pin, idtilit, idasiakas) values (?,?,?,?)',
-      [pankki_kortti.ID_numero, hash, pankki_kortti.idtilit, pankki_kortti.idasiakas], callback);
+      return db.query('insert into pankki_kortti (idtilit,Pin,idasiakas ) values (?,?,?)',
+      [ pankki_kortti.idtilit, hash, pankki_kortti.idasiakas], callback);
     });
   },
   delete: function(id, callback) {
@@ -20,8 +20,8 @@ const pankki_kortti={
   },
   update: function(id, pankki_kortti, callback) {
     bcrypt.hash(pankki_kortti.Pin, saltRounds, function(err, hash) {
-      return db.query('update pankki_kortti set ID_numero=?, Pin=? where idtilit=?',
-      [pankki_kortti.ID_numero, hash, id], callback);
+      return db.query('update pankki_kortti set  Pin=? where idtilit=?',
+      [ hash, id], callback);
     });
   }
 

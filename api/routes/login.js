@@ -2,12 +2,11 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const login = require('../models/login_model');
-const tiedot = require('../models/tiedot_model');
 
 router.post('/', 
   function(request, response) {
-    if(request.body.ID_numero && request.body.Pin){
-      const username = request.body.ID_numero;
+    if(request.body.idtilit && request.body.Pin){
+      const username = request.body.idtilit;
       const password = request.body.Pin;
     
     
@@ -32,7 +31,7 @@ router.post('/',
               );
             }
             else{
-              console.log("ID numeroa ei löydy.");
+              console.log("ID ei löydy.");
               response.send(false);
             }
           }
@@ -40,7 +39,7 @@ router.post('/',
         );
       }
     else{
-      console.log("ID numero tai PIN puuttuu");
+      console.log("ID tai PIN puuttuu");
       response.send(false);
     }
   }
