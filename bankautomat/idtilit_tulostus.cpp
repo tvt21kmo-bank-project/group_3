@@ -13,7 +13,7 @@ idtilit_tulostus::~idtilit_tulostus()
 {
     delete ui;
 }
-
+// TÄYTYY SIIRTÄÄ KOKO PASKA MAINWINDOW.cpp:hen
 void idtilit_tulostus::Ismo(const QString &Taalasmaa)
 {
     Kari = Taalasmaa;
@@ -29,7 +29,7 @@ void idtilit_tulostus::on_btnHaeTiedot_clicked()
     QByteArray data = credentials.toLocal8Bit().toBase64();
     QString headerData = "Basic " + data;
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
-         tulosta_tiedot = new QNetworkAccessManager(this);
+    tulosta_tiedot = new QNetworkAccessManager(this);
     connect(tulosta_tiedot, SIGNAL(finished (QNetworkReply*)),
     this, SLOT(Hae(QNetworkReply*)));
     reply = tulosta_tiedot->get(request);
@@ -73,12 +73,27 @@ void idtilit_tulostus::Hae(QNetworkReply *reply)
 
 void idtilit_tulostus::Nayta(QNetworkReply *vastaa)
 {
-
     QByteArray response_data=vastaa->readAll();
+
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray json_array = json_doc.array();
+    QString Nimi;
+    foreach (const QJsonValue &value, json_array) {
+    QJsonObject json_obj = value.toObject();
+    Nimi = json_obj["Etunimi"].toString()+ "  "+json_obj["Sukunimi"].toString();
+    }
+    Jarmo =Nimi;
+     ui->txtTiedot->setText(Jarmo);
+     emit signalJarmo(Jarmo);
+
+
+
+    /*
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     qDebug()<<json_doc;
+
     QString Nimi=json_doc["idasiakas"].toString();
-    ui->txtTiedot->setText(Nimi);
+    */
 }
 
 

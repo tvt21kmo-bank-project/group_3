@@ -47,7 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
        // ALLA TIEDON SAIIRTO SEKOILUA
         connect(this, SIGNAL(signalKirjautuminen(const QString &)),objDebit , SLOT(Pihlajakatu(const QString &)));
         connect(this, SIGNAL(signalKirjautuminen(const QString &)),objtilit , SLOT(Ismo(const QString &)));//Lähetetään kirjautumis ID_numero signaalilla valikkoon
-
+        //Nimen siirtoa
+        connect(objtilit, SIGNAL(signalJarmo(const QString &)),this, SLOT(IsmonValinta(const QString & )));
+        connect(this, SIGNAL(signalLakki(const QString &)),objDebit, SLOT(Paa(const QString & )));
         timerCounter = 0;                                                   //alustetaan ajan laskenta lähtemään nollasta
 
 
@@ -172,6 +174,8 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
     {                    //menee jokuIkkuna -muuttujaan. jokuIkkuna -muuttujan arvo määrittää mitä tässä funktiossa tehdään.
         objPankki->close();
         objDebit->show();
+        qDebug()<<Lasse;
+        emit signalLakki(Lasse);
         objTimer->start();
     }
     if(jokuIkkuna == 2)
@@ -192,26 +196,26 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
         objPadel->show();
         objTimer->start();
     }
-    if(jokuIkkuna == 5)
-    {
+        if(jokuIkkuna == 5)
+         {
         objDebit->close();
         objSaldo->show();
         objTimer->start();
-    }
-    if(jokuIkkuna == 6)
-    {
+        }
+         if(jokuIkkuna == 6)
+         {
         objDebit->close();
         objTapahtumat->show();
         objTimer->start();
-    }
-    if(jokuIkkuna == 7)
-    {
+          }
+         if(jokuIkkuna == 7)
+         {
         objDebit->close();
         objTimer->stop();
-    }
+        }
 
-    if(jokuIkkuna == 8)
-    {
+         if(jokuIkkuna == 8)
+        {
            objNosto->close();
            objDebit->show();
            objTimer->start();
@@ -252,6 +256,12 @@ void MainWindow::menuHuudettu() //MENU-LUOKKA LÄHETTÄÄ SIGNAALIN TÄHÄN SLOT
     objPadel->close();
     objSaldo->close();
     objTapahtumat->close();
+}
+
+void MainWindow::IsmonValinta(const QString & Jarmo)
+{
+    //Lasse = Jarmo;
+    qDebug()<<Jarmo;
 }
 
 

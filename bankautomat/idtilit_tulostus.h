@@ -41,6 +41,7 @@ private:
 
 signals:
     void signalKirjautuminen();
+    void signalJarmo(const QString &);
 
 };
 

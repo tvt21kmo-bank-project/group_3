@@ -27,6 +27,7 @@ public:
 public slots:
 
     void Pihlajakatu(const QString &);
+    void Paa(const QString &);
 
 private slots:
 
@@ -51,9 +52,10 @@ private:
     QNetworkReply *reply;
     int timerNmbr;
     QString Ulla;
+    QString Hanska;
 
 signals:
-    void signalKirjautuminen();
+
     void resetTimerNosto(int);
     void resetTimerPadel(int);
     void resetTimerSaldo(int);
