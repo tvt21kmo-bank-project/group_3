@@ -17,6 +17,12 @@ public:
 
 private:
     Ui::Tilitapahtumat *ui;
+    int timerNmbr;
+
+ signals:
+     void resetTimerTapahtumistaValikkoon(int);
+ private slots:
+     void on_btnMenu_clicked();
 };
 
 #endif // TILITAPAHTUMAT_H

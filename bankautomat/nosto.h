@@ -35,6 +35,10 @@ private slots:
 
 private:
     Ui::Nosto *ui;
+    int timerNmbr;
+
+signals:
+    void resetTimerNostostaValikkoon(int);
 
 };
 
