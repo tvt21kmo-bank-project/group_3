@@ -22,18 +22,7 @@ void idtilit_tulostus::Ismo(const QString &Taalasmaa)
 
 void idtilit_tulostus::Hae(QNetworkReply *reply)
 {
-    QByteArray response_data=reply->readAll();
 
-    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-    QJsonArray json_array = json_doc.array();
-    QString tiedot;
-    foreach (const QJsonValue &value, json_array) {
-    QJsonObject json_obj = value.toObject();
-    tiedot+=QString::number(json_obj["idtilit"].toInt())+","+json_obj["idasiakas"].toInt()+",\r";
-    }
-    //qDebug()<<;
-    ui->txtTiedot->setText(tiedot);
-    reply->deleteLater();
 
 }
 

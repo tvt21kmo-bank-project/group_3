@@ -16,7 +16,8 @@ Nosto::~Nosto()
 
 void Nosto::on_btnMenu_clicked()
 {
-
+    timerNmbr = 8;
+    emit resetTimerNostostaValikkoon(timerNmbr);
 }
 
 

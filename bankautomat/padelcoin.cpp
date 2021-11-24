@@ -15,6 +15,7 @@ Padelcoin::~Padelcoin()
 
 void Padelcoin::on_btnMenu_clicked()
 {
-
+    timerNmbr = 9;
+    emit resetTimerPadelistaValikkoon(timerNmbr);
 }
 

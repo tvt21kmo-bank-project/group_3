@@ -15,6 +15,7 @@ Saldo::~Saldo()
 
 void Saldo::on_btnMenu_clicked()
 {
-
+    timerNmbr = 10;
+    emit resetTimerSaldostaValikkoon(timerNmbr);
 }
 

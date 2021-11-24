@@ -52,11 +52,10 @@ void Valikko::on_btnULos_clicked()
 
 
 
-
 void Valikko::on_btnpenus_clicked()
 {
 
-    timerNmbr = 8;
+    timerNmbr = 666;
     emit resetTimerUlos(timerNmbr);
 
 }

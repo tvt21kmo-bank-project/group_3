@@ -12,3 +12,10 @@ Tilitapahtumat::~Tilitapahtumat()
 {
     delete ui;
 }
+
+void Tilitapahtumat::on_btnMenu_clicked()
+{
+    timerNmbr = 11;
+    emit resetTimerTapahtumistaValikkoon(timerNmbr);
+}
+

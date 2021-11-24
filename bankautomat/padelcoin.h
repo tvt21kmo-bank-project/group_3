@@ -20,6 +20,10 @@ private slots:
 
 private:
     Ui::Padelcoin *ui;
+    int timerNmbr;
+
+signals:
+    void resetTimerPadelistaValikkoon(int);
 };
 
 #endif // PADELCOIN_H

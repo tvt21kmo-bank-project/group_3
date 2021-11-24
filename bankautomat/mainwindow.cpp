@@ -38,11 +38,15 @@ MainWindow::MainWindow(QWidget *parent)
         QObject::connect(objDebit, SIGNAL(resetTimerTapahtumat(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerUlos(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerTiedot(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objNosto, SIGNAL(resetTimerNostostaValikkoon(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objPadel, SIGNAL(resetTimerPadelistaValikkoon(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objSaldo, SIGNAL(resetTimerSaldostaValikkoon(int)), this, SLOT(resetTimer(int)));
+        QObject::connect(objTapahtumat, SIGNAL(resetTimerTapahtumistaValikkoon(int)), this, SLOT(resetTimer(int)));
         connect(this, SIGNAL(aikaLoppu()), objPankki, SLOT(aikaMeni()));    //pohjustetaan MainWindown aikaLoppu() signaalin yhteys menu-ikkunan aikaMeni() slottiin
         connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu()));
        // ALLA TIEDON SAIIRTO SEKOILUA
-        connect(this, SIGNAL(signalKirjautuminen(const QString &)),objDebit , SLOT(Pihlajakatu(const QString &)));
-        connect(this, SIGNAL(signalKirjautuminen(const QString &)),objtilit , SLOT(Ismo(const QString &)));//Lähetetään kirjautumis ID_numero signaalilla valikkoon
+        connect(this, SIGNAL(signalKirjautuminen(const QString &)), objDebit, SLOT(Pihlajakatu(const QString &)));
+        connect(this, SIGNAL(signalKirjautuminen(const QString &)), objtilit, SLOT(Ismo(const QString &)));//Lähetetään kirjautumis ID_numero signaalilla valikkoon
 
         timerCounter = 0;                                                   //alustetaan ajan laskenta lähtemään nollasta
 
@@ -205,8 +209,32 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
         objDebit->close();
         objTimer->stop();
     }
-
     if(jokuIkkuna == 8)
+    {
+        objNosto->close();
+        objDebit->show();
+        objTimer->start();
+    }
+    if(jokuIkkuna == 9)
+    {
+        objPadel->close();
+        objDebit->show();
+        objTimer->start();
+    }
+    if(jokuIkkuna == 10)
+    {
+        objSaldo->close();
+        objDebit->show();
+        objTimer->start();
+    }
+    if(jokuIkkuna == 11)
+    {
+        objTapahtumat->close();
+        objDebit->show();
+        objTimer->start();
+    }
+
+    if(jokuIkkuna == 666)
     {
         objDebit->close();
         objtilit->show();
