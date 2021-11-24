@@ -46,7 +46,7 @@ void Valikko::on_btnTilitapahtumat_clicked()
 
 void Valikko::on_btnULos_clicked()
 {
-    timerNmbr = 666;
+    timerNmbr = 7;
     emit resetTimerUlos(timerNmbr);
 }
 
@@ -56,7 +56,7 @@ void Valikko::on_btnULos_clicked()
 void Valikko::on_btnpenus_clicked()
 {
 
-    timerNmbr = 8;
+    timerNmbr = 666;
     emit resetTimerUlos(timerNmbr);
 
 }
