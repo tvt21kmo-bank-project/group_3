@@ -22,6 +22,8 @@ public slots:
 
     void NimenKoti(const QString &);
     void IDKoti(const QString &);
+    void TiliKoti(QNetworkReply *reply);
+   void NostoLOL(const QString &);
 
 private slots:
 
@@ -39,6 +41,9 @@ private:
     QNetworkReply *reply;
     QString NostoNimi;
       QString NostoId;
+      QString NostoTili;
+       const QString Mauri = "1004";
+       QString Numerolol;
 
 
 signals:
@@ -47,3 +52,6 @@ signals:
 };
 
 #endif // NOSTO_H
+
+
+

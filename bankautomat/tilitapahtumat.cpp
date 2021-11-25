@@ -48,7 +48,7 @@ void Tilitapahtumat::TapahtumaTulostus(QNetworkReply *reply)
     hattu += json_obj["Paivays"].toString()+ "  "+json_obj["Tapahtuma" ].toString()+ "  "+json_obj["Rahamaara"].toString()+"\r";
     Parta = hattu;
     //ui->txtSaldo->setText(Viikset + "$");
-    qDebug()<<"LOL parta"<<Parta;
+   // qDebug()<<"LOL parta"<<Parta;
     ui->Display->setText(Parta );
 }
  }

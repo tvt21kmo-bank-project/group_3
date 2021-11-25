@@ -45,15 +45,17 @@ MainWindow::MainWindow(QWidget *parent)
         connect(this, SIGNAL(aikaLoppu()), objPankki, SLOT(aikaMeni()));    //pohjustetaan MainWindown aikaLoppu() signaalin yhteys menu-ikkunan aikaMeni() slottiin
         connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu()));
        // ALLA TIEDON SAIIRTO SEKOILUA
-     connect(this, SIGNAL(signalLakki (const QString &)),this, SLOT(Delismo(const QString &)));
+        connect(this, SIGNAL(signalLakki (const QString &)),this, SLOT(Delismo(const QString &)));
         connect(this, SIGNAL(signalLakki (const QString &)),objSaldo, SLOT(SaldoKoti(const QString &)));
         connect(this, SIGNAL(signalLakki (const QString &)),objTapahtumat, SLOT(TapahtumaKoti(const QString &)));
+        connect(this, SIGNAL(signalLakki (const QString &)),objNosto, SLOT(NostoLOL(const QString &)));
                 //Nimen siirtoa
-    connect(this, SIGNAL(signalJarmo (const QString &)),objDebit, SLOT(JarmonKoti(const QString &)));
-     connect(this, SIGNAL(signalJarmo (const QString &)),objNosto, SLOT(NimenKoti(const QString &)));
+        connect(this, SIGNAL(signalJarmo (const QString &)),objDebit, SLOT(JarmonKoti(const QString &)));
+        connect(this, SIGNAL(signalJarmo (const QString &)),objNosto, SLOT(NimenKoti(const QString &)));
       // Lähettää asiakkaan idtilin
-    connect(this, SIGNAL(signalSepi (const QString &)),objDebit, SLOT(SepinKoti(const QString &)));
-    connect(this, SIGNAL(signalSepi (const QString &)),objNosto, SLOT(IDKoti(const QString &)));
+        connect(this, SIGNAL(signalSepi (const QString &)),objDebit, SLOT(SepinKoti(const QString &)));
+         connect(this, SIGNAL(signalSepi (const QString &)),objNosto, SLOT(IDKoti(const QString &)));
+          connect(this, SIGNAL(signalSepi (const QString &)),objPadel, SLOT(CoinKoti(const QString &)));
 
 
         timerCounter = 0;                                                   //alustetaan ajan laskenta lähtemään nollasta
@@ -249,7 +251,7 @@ void MainWindow::menuTimerSlotti()
 {
     timerCounter++; //timerCounter-muuttujan arvo kasvaa yhdellä joka sekunti
     qDebug()<<timerCounter;
-    if(timerCounter == 5) // kun timerCounter saavuttaa arvon 30 sek, (tai tässä testimielessä 5 sek)
+    if(timerCounter == 30) // kun timerCounter saavuttaa arvon 30 sek, (tai tässä testimielessä 5 sek)
     {
         emit aikaLoppu();   //niin aikaLoppu() -signaali lähetetään menu-luokan slottiin
         objTimer->stop();
