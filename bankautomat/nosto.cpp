@@ -31,6 +31,13 @@ void Nosto::NimenKoti(const QString &Jarmo)
     ui->lblkayttaja->setText(NostoNimi);
 }
 
+void Nosto::IDKoti(const QString &Sepi)
+{
+    NostoId = Sepi;
+    qDebug()<<NostoId;
+    //ui->lblkayttaja_2->setText(NostoId);
+}
+
 void Nosto::maara_painettu()
 {
     QPushButton* button1 = (QPushButton*)sender(); //Luodaan QPushbutton olio

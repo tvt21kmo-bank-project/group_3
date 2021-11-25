@@ -46,10 +46,14 @@ MainWindow::MainWindow(QWidget *parent)
         connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu()));
        // ALLA TIEDON SAIIRTO SEKOILUA
      connect(this, SIGNAL(signalLakki (const QString &)),this, SLOT(Delismo(const QString &)));
+        connect(this, SIGNAL(signalLakki (const QString &)),objSaldo, SLOT(SaldoKoti(const QString &)));
                 //Nimen siirtoa
     connect(this, SIGNAL(signalJarmo (const QString &)),objDebit, SLOT(JarmonKoti(const QString &)));
-     connect(this, SIGNAL(signalJarmo (const QString &)),objNosto, SLOT(NimenKoti(const QString &)));//Lähettää asiakkaan nimen
-    connect(this, SIGNAL(signalSepi (const QString &)),objDebit, SLOT(SepinKoti(const QString &))); // Lähettää asiakkaan idtilin
+     connect(this, SIGNAL(signalJarmo (const QString &)),objNosto, SLOT(NimenKoti(const QString &)));
+      // Lähettää asiakkaan idtilin
+    connect(this, SIGNAL(signalSepi (const QString &)),objDebit, SLOT(SepinKoti(const QString &)));
+    connect(this, SIGNAL(signalSepi (const QString &)),objNosto, SLOT(IDKoti(const QString &)));
+
 
         timerCounter = 0;                                                   //alustetaan ajan laskenta lähtemään nollasta
 
