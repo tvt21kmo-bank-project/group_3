@@ -27,7 +27,7 @@ CREATE TABLE `asiakas` (
   `Etunimi` varchar(45) DEFAULT NULL,
   `Sukunimi` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idasiakas`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,6 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `asiakas_tili`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `asiakas_tili` (
   `idasiakas` int NOT NULL,
   `idtitlit` int NOT NULL,
@@ -55,7 +54,7 @@ CREATE TABLE `asiakas_tili` (
   KEY `fk_tilit_has_asiakas_tilit_idx` (`idasiakas`),
   CONSTRAINT `fk_tilit_has_asiakas_asiakas1` FOREIGN KEY (`idtitlit`) REFERENCES `asiakas` (`idasiakas`),
   CONSTRAINT `fk_tilit_has_asiakas_tilit` FOREIGN KEY (`idasiakas`) REFERENCES `tilit` (`idtilit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +72,6 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `pankki_kortti`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pankki_kortti` (
   `idtilit` int NOT NULL,
   `Pin` varchar(255) DEFAULT NULL,
@@ -82,7 +80,7 @@ CREATE TABLE `pankki_kortti` (
   KEY `fk_pankki_kortti_asiakas1_idx` (`idasiakas`),
   CONSTRAINT `fk_pankki_kortti_asiakas1` FOREIGN KEY (`idasiakas`) REFERENCES `asiakas` (`idasiakas`),
   CONSTRAINT `fk_pankki_kortti_tilit1` FOREIGN KEY (`idtilit`) REFERENCES `tilit` (`idtilit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +99,6 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tilit`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tilit` (
   `idtilit` int NOT NULL AUTO_INCREMENT,
   `idOmistaja` int DEFAULT NULL,
@@ -110,7 +107,7 @@ CREATE TABLE `tilit` (
   `Kortin_tyyppi` varchar(45) DEFAULT NULL,
   `Luottoraja` float DEFAULT NULL,
   PRIMARY KEY (`idtilit`)
-) ENGINE=InnoDB AUTO_INCREMENT=1004 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +126,6 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tilitapahtumat`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tilitapahtumat` (
   `idtilitapahtumat` int NOT NULL AUTO_INCREMENT,
   `Paivays` datetime DEFAULT NULL,
@@ -140,7 +136,7 @@ CREATE TABLE `tilitapahtumat` (
   PRIMARY KEY (`idtilitapahtumat`),
   KEY `fk_tilitapahtumat_tilit1_idx` (`idtilit`),
   CONSTRAINT `fk_tilitapahtumat_tilit1` FOREIGN KEY (`idtilit`) REFERENCES `tilit` (`idtilit`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
