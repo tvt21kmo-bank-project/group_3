@@ -21,6 +21,7 @@ public:
 public slots:
 
     void NimenKoti(const QString &);
+    void IDKoti(const QString &);
 
 private slots:
 
@@ -37,6 +38,8 @@ private:
     QNetworkAccessManager *debitManager;
     QNetworkReply *reply;
     QString NostoNimi;
+      QString NostoId;
+
 
 signals:
     void resetTimerNostostaValikkoon(int);
