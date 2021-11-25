@@ -16,7 +16,7 @@ Saldo::~Saldo()
 void Saldo::SaldoKoti(const QString &Taalasmaa)
 {
     SaldoId =Taalasmaa;
-   qDebug()<<SaldoId;
+   //qDebug()<<SaldoId;
 
     QJsonObject json; //luodaan JSON objekti ja lisätään data
     QString site_url="http://localhost:3000/tilit/" + SaldoId;
@@ -44,7 +44,7 @@ void Saldo::SaldoTulostus(QNetworkReply *reply)
     hattu+=QString::number(json_obj["Saldo"].toDouble());
     Viikset = hattu;
     ui->txtSaldo->setText(Viikset + "$");
-    qDebug()<<"LOL"<<Viikset;
+   // qDebug()<<"LOL"<<Viikset;
 }
 }
 void Saldo::on_btnMenu_clicked()

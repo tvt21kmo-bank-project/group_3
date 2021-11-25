@@ -47,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
        // ALLA TIEDON SAIIRTO SEKOILUA
      connect(this, SIGNAL(signalLakki (const QString &)),this, SLOT(Delismo(const QString &)));
         connect(this, SIGNAL(signalLakki (const QString &)),objSaldo, SLOT(SaldoKoti(const QString &)));
+        connect(this, SIGNAL(signalLakki (const QString &)),objTapahtumat, SLOT(TapahtumaKoti(const QString &)));
                 //Nimen siirtoa
     connect(this, SIGNAL(signalJarmo (const QString &)),objDebit, SLOT(JarmonKoti(const QString &)));
      connect(this, SIGNAL(signalJarmo (const QString &)),objNosto, SLOT(NimenKoti(const QString &)));

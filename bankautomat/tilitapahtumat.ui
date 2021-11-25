@@ -13,16 +13,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="Display">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>50</y>
-     <width>551</width>
-     <height>331</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btnMenu">
    <property name="geometry">
     <rect>
@@ -59,6 +49,21 @@ QPushButton:pressed {
    </property>
    <property name="text">
     <string>Menu</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="Display">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>90</y>
+     <width>481</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
    </property>
   </widget>
  </widget>
