@@ -47,7 +47,8 @@ MainWindow::MainWindow(QWidget *parent)
        // ALLA TIEDON SAIIRTO SEKOILUA
      connect(this, SIGNAL(signalLakki (const QString &)),this, SLOT(Delismo(const QString &)));
                 //Nimen siirtoa
-    connect(this, SIGNAL(signalJarmo (const QString &)),objDebit, SLOT(JarmonKoti(const QString &))); //Lähettää asiakkaan nimen
+    connect(this, SIGNAL(signalJarmo (const QString &)),objDebit, SLOT(JarmonKoti(const QString &)));
+     connect(this, SIGNAL(signalJarmo (const QString &)),objNosto, SLOT(NimenKoti(const QString &)));//Lähettää asiakkaan nimen
     connect(this, SIGNAL(signalSepi (const QString &)),objDebit, SLOT(SepinKoti(const QString &))); // Lähettää asiakkaan idtilin
 
         timerCounter = 0;                                                   //alustetaan ajan laskenta lähtemään nollasta
@@ -203,7 +204,7 @@ void MainWindow::MustavaaraYhtio(QNetworkReply *nayta_tiedot)
     connect(tulosta_tiedot, SIGNAL(finished (QNetworkReply*)),
     this, SLOT(TaalasYhtio(QNetworkReply*)));
     vastaa = tulosta_tiedot->get(request);
-    qDebug()<<Sepi;
+    //qDebug()<<Sepi;
     emit signalSepi(Sepi);
 
 }

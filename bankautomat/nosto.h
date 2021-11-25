@@ -2,6 +2,9 @@
 #define NOSTO_H
 
 #include <QDialog>
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
 
 namespace Ui {
 class Nosto;
@@ -15,27 +18,25 @@ public:
     explicit Nosto(QWidget *parent = nullptr);
     ~Nosto();
 
+public slots:
+
+    void NimenKoti(const QString &);
 
 private slots:
-    void on_btn500_clicked();
+
+     void maara_painettu();
 
     void on_btnMenu_clicked();
 
     void on_btnNosta_clicked();
 
-    void on_btn200_clicked();
-
-    void on_btn100_clicked();
-
-    void on_btn60_clicked();
-
-    void on_btn40_clicked();
-
-    void on_btn20_clicked();
 
 private:
     Ui::Nosto *ui;
     int timerNmbr;
+    QNetworkAccessManager *debitManager;
+    QNetworkReply *reply;
+    QString NostoNimi;
 
 signals:
     void resetTimerNostostaValikkoon(int);
