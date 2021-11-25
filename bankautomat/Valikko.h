@@ -26,8 +26,9 @@ public:
 
 public slots:
 
-    void Pihlajakatu(const QString &);
-    void Paa(const QString &);
+    void JarmonKoti(const QString &);
+    void SepinKoti(const QString &);
+
 
 private slots:
 
@@ -42,7 +43,6 @@ private slots:
 
     void on_btnULos_clicked();
 
-    void on_btnpenus_clicked();
 
 
 private:
@@ -51,8 +51,9 @@ private:
     QNetworkAccessManager *debitManager;
     QNetworkReply *reply;
     int timerNmbr;
+    QString Rolf;
     QString Ulla;
-    QString Hanska;
+
 
 signals:
 

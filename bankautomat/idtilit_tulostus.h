@@ -21,7 +21,7 @@ public:
     ~idtilit_tulostus();
 
 public slots:
-    void Ismo(const QString &);
+
     void Hae(QNetworkReply *reply);
     void Nayta(QNetworkReply *reply);
 
@@ -31,17 +31,11 @@ private slots:
 
 private:
     Ui::idtilit_tulostus *ui;
-    QNetworkAccessManager *tulosta_tiedot;
-    QNetworkAccessManager *nayta_tiedot;
-    QNetworkReply *reply;
-    QNetworkReply *vastaa;
-    QString Kari;
-    QString Sepi;
-    QString Jarmo;
+
 
 signals:
     void signalKirjautuminen();
-    void signalJarmo(const QString &);
+
 
 };
 

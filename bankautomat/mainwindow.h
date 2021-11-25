@@ -36,7 +36,13 @@ private:
     Ui::MainWindow *ui;
    QNetworkAccessManager *loginManager;
    QNetworkReply *reply;
+    QNetworkAccessManager *tulosta_tiedot;
    Menu *objPankki;
+   QNetworkReply *nayta_tiedot;
+
+   QNetworkReply *vastaa;
+
+
    idtilit_tulostus *objtilit;
    Valikko *objDebit;
    Nosto *objNosto;
@@ -47,18 +53,25 @@ private:
    short timerCounter;
    QString Taalasmaa;
    QString Lasse;
+   QString Kari;
+   QString Sepi;
+   QString Jarmo;
 
 public slots:
     void menuTimerSlotti();
     void resetTimer(int);
     void menuHuudettu();
     void IsmonValinta(const QString &);
+    void Delismo(const QString &);
+    void MustavaaraYhtio(QNetworkReply *reply);
+    void TaalasYhtio(QNetworkReply *reply);
 
 signals:
     void aikaLoppu();
     void signalKirjautuminen(const QString &);
     void signalLakki(const QString &);
-
+    void signalJarmo(const QString &);
+    void signalSepi(const QString &);
 
 
 

@@ -8,11 +8,26 @@ Valikko::Valikko(QWidget *parent) :
     ui->setupUi(this);
 
 
+
 }
 
 Valikko::~Valikko()
 {
     delete ui;
+}
+
+void Valikko::JarmonKoti(const QString &Jarmo)
+{
+    Rolf = Jarmo;
+    qDebug()<<Rolf;
+     ui->lblTervehdys->setText(Rolf);
+
+}
+
+void Valikko::SepinKoti(const QString &Sepi)
+{
+    Ulla = Sepi;
+    ui->lblTervehdys_2->setText(Ulla);
 }
 
 
@@ -53,26 +68,6 @@ void Valikko::on_btnULos_clicked()
 
 
 
-void Valikko::on_btnpenus_clicked()
-{
 
-    timerNmbr = 666;
-    emit resetTimerUlos(timerNmbr);
 
-}
-
-void Valikko::Pihlajakatu(const QString &Taalasmaa)
-{
-   Ulla = Taalasmaa;
-   //ui->lblTervehdys->setText(Ulla);
-
-}
-
-void Valikko::Paa(const QString &Lasse)
-{
-
-    Hanska = Lasse;
-    qDebug()<<Hanska;
-    ui->lblTervehdys->setText("terve" + Hanska);
-}
 
