@@ -11,7 +11,6 @@ CONFIG += c++11
 
 SOURCES += \
     Valikko.cpp \
-    idtilit_tulostus.cpp \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
@@ -24,7 +23,6 @@ SOURCES += \
 
 HEADERS += \
     Valikko.h \
-    idtilit_tulostus.h \
     mainwindow.h \
     menu.h \
     nosto.h \
@@ -36,7 +34,6 @@ HEADERS += \
 
 FORMS += \
     Valikko.ui \
-    idtilit_tulostus.ui \
     mainwindow.ui \
     menu.ui \
     nosto.ui \
