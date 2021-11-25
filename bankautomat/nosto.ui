@@ -373,7 +373,7 @@ QPushButton:pressed {
     <string>500</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="muuSumma">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -578,9 +578,9 @@ QPushButton:pressed {
   <widget class="QLabel" name="lblkayttaja_2">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>20</y>
-     <width>331</width>
+     <x>230</x>
+     <y>360</y>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>

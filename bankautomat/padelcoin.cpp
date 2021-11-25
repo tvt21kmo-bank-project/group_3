@@ -13,6 +13,17 @@ Padelcoin::~Padelcoin()
     delete ui;
 }
 
+void Padelcoin::CoinKoti(const QString &Sepi)
+{
+    PadelId = Sepi;
+    qDebug()<<PadelId;
+}
+
+void Padelcoin::PadelKoti(QNetworkReply *reply)
+{
+
+}
+
 void Padelcoin::on_btnMenu_clicked()
 {
     timerNmbr = 9;
