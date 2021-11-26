@@ -9,7 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+
 
     // LUODAAN KAIKKIEN MUIDEN LUOKKIEN OLIOT MAINWINDOWIIN, JOLLOIN NIIDEN AVAAMINEN TAPAHTUU AINA SAMAN LUOKAN KAUTTA.
     // KANNATTAA TSEKATA menu.h JA .cpp, KOSKA NIISTÄ SELVIÄÄ TARKEMMIN MITEN TIMER TOIMII SIGNAL/SLOT MENETELMÄLLÄ
@@ -45,17 +47,22 @@ MainWindow::MainWindow(QWidget *parent)
         connect(this, SIGNAL(aikaLoppu()), objPankki, SLOT(aikaMeni()));    //pohjustetaan MainWindown aikaLoppu() signaalin yhteys menu-ikkunan aikaMeni() slottiin
         connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu()));
        // ALLA TIEDON SAIIRTO SEKOILUA
+        //Login lol
         connect(this, SIGNAL(signalLakki (const QString &)),this, SLOT(Delismo(const QString &)));
+         connect(this, SIGNAL(signalLakki (const QString &)),this, SLOT(IsmonValinta(const QString &)));
         connect(this, SIGNAL(signalLakki (const QString &)),objSaldo, SLOT(SaldoKoti(const QString &)));
         connect(this, SIGNAL(signalLakki (const QString &)),objTapahtumat, SLOT(TapahtumaKoti(const QString &)));
         connect(this, SIGNAL(signalLakki (const QString &)),objNosto, SLOT(NostoLOL(const QString &)));
+         connect(this, SIGNAL(signalLakki (const QString &)),objPadel, SLOT(CoinKoti(const QString &)));
+         //Kortin tyyppi
+          connect(this, SIGNAL(signalRosvo (const QString &)),objDebit, SLOT(SepinKoti(const QString &)));
                 //Nimen siirtoa
         connect(this, SIGNAL(signalJarmo (const QString &)),objDebit, SLOT(JarmonKoti(const QString &)));
         connect(this, SIGNAL(signalJarmo (const QString &)),objNosto, SLOT(NimenKoti(const QString &)));
       // Lähettää asiakkaan idtilin
-        connect(this, SIGNAL(signalSepi (const QString &)),objDebit, SLOT(SepinKoti(const QString &)));
+       // connect(this, SIGNAL(signalSepi (const QString &)),objDebit, SLOT(SepinKoti(const QString &)));
          connect(this, SIGNAL(signalSepi (const QString &)),objNosto, SLOT(IDKoti(const QString &)));
-          connect(this, SIGNAL(signalSepi (const QString &)),objPadel, SLOT(CoinKoti(const QString &)));
+
 
 
         timerCounter = 0;                                                   //alustetaan ajan laskenta lähtemään nollasta
@@ -74,8 +81,21 @@ MainWindow::MainWindow(QWidget *parent)
    connect(ui->btn8,SIGNAL(released()),this,SLOT(numero_painettu()));
    connect(ui->btn9,SIGNAL(released()),this,SLOT(numero_painettu()));
 
-   ui->Display1->setClearButtonEnabled(true);//Delete nappi
-   ui->Display2->setClearButtonEnabled(true);//Delete nappi
+   //2
+   connect(ui->btn0,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+   connect(ui->btn1,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+   connect(ui->btn2,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+   connect(ui->btn3,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+   connect(ui->btn4,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+   connect(ui->btn5,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+   connect(ui->btn6,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+   connect(ui->btn7,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+   connect(ui->btn8,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+   connect(ui->btn9,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+
+
+   //ui->Display1->setClearButtonEnabled(true);//Delete nappi
+   //ui->Display2->setClearButtonEnabled(true);//Delete nappi
 }
 
 MainWindow::~MainWindow()
@@ -88,15 +108,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::numero_painettu()
 {
- QPushButton* button = (QPushButton*)sender(); //Luodaan QPushbutton olio
-
+ QPushButton* button = (QPushButton*)sender();
+ //Luodaan QPushbutton olio
 
 
  double Numero;
+
 //Double muuttuja jotta voidaan muuttaa Qstring arvo Double muotoon että Qt tajuaa laittaa seuraavan numeron äskeisen perään eri säilyttää arvon ruudulla
  QString Uusi_numero;
-  QString Uusi_numero2;
- //QString muuttuja, että saadaan Double arvo tulostettua QStringillä :D LOL
+
+ //QString muuttuja, että saadaan Double arvo tulostettua QStringillä
+
 
  Numero =(ui->Display1->text() + button->text()).toDouble();
 
@@ -104,9 +126,19 @@ void MainWindow::numero_painettu()
 
  ui->Display1->setText(Uusi_numero);
 
- Uusi_numero2 = QString::number(Numero);
 
- ui->Display2->setText(Uusi_numero2);
+}
+
+void MainWindow::numero_painettu_2()
+{
+    QPushButton* button = (QPushButton*)sender();
+    double Numero_2;
+    QString Uusi_numero2;
+    Numero_2 =(ui->Display2->text() + button->text()).toDouble();
+
+    Uusi_numero2 = QString::number(Numero_2);
+
+    ui->Display2->setText(Uusi_numero2);
 }
 
 
@@ -129,7 +161,7 @@ void MainWindow::on_btnOK_clicked()
     reply = loginManager->post(request, QJsonDocument(json).toJson());
 
     Taalasmaa = json["idtilit"].toString();
-   // qDebug()<<Taalasmaa;
+    qDebug()<<Taalasmaa;
 
 
 
@@ -149,24 +181,21 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     QByteArray response_data=reply->readAll();
     //qDebug()<<response_data;
     if(response_data=="true"){
-        qDebug()<<"Oikea tunnus ...avaa form";
+        qDebug()<<"Oikea tunnus nice!";
       emit signalLakki(Taalasmaa);
 
         objPankki->show();
 
 
     }
-    else {
+    else if(response_data=="false"){
+        qDebug()<<"Väärät tunnukset senkin pelle";
         ui->Display1->setText("");
         ui->Display2->setText("");
     }
 }
 
-void MainWindow::IsmonValinta(const QString &)
-{
 
-
-}
 
 void MainWindow::Delismo(const QString &Taalasmaa)
 {
@@ -239,6 +268,43 @@ void MainWindow::MustavaaraYhtio(QNetworkReply *nayta_tiedot)
 
 
 
+    void MainWindow::IsmonValinta(const QString &Taalasmaa)
+    {
+        Nikkinen = Taalasmaa;
+
+        QJsonObject json;
+        QString site_url="http://localhost:3000/tilit/" + Nikkinen;
+        QString credentials="pankki_admin:bosspankki";
+        QNetworkRequest request((site_url));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        QByteArray data = credentials.toLocal8Bit().toBase64();
+        QString headerData = "Basic " + data;
+        request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+        tulosta_Nikkinen = new QNetworkAccessManager(this);
+        connect(tulosta_Nikkinen, SIGNAL(finished (QNetworkReply*)),
+        this, SLOT(NilkkiNikkinen(QNetworkReply*)));
+        nayta_Nikkinen = tulosta_Nikkinen->get(request);
+
+
+    }
+    void MainWindow::NilkkiNikkinen(QNetworkReply *nayta_Nikkinen)
+    {
+        QByteArray response_data=nayta_Nikkinen->readAll();
+
+        QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+        QJsonArray json_array = json_doc.array();
+        QString Aki;
+        foreach (const QJsonValue &value, json_array) {
+        QJsonObject json_obj = value.toObject();
+        Aki = json_obj["Kortin_tyyppi"].toString();
+        Kuula_Nikkinen = Aki;
+        qDebug()<<Kuula_Nikkinen;
+        emit signalRosvo(Kuula_Nikkinen);
+
+        }
+
+    }
+
 
 
 
@@ -266,8 +332,6 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
     {                    //menee jokuIkkuna -muuttujaan. jokuIkkuna -muuttujan arvo määrittää mitä tässä funktiossa tehdään.
         objPankki->close();
         objDebit->show();
-        qDebug()<<Lasse;
-        emit signalLakki(Lasse);
         objTimer->start();
     }
     if(jokuIkkuna == 2)
@@ -351,4 +415,12 @@ void MainWindow::menuHuudettu() //MENU-LUOKKA LÄHETTÄÄ SIGNAALIN TÄHÄN SLOT
 
 
 
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->Display1->setText("");
+    ui->Display2->setText("");
+
+}
 

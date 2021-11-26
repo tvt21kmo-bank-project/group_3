@@ -27,35 +27,52 @@ public:
 
 
 private slots:
-    void numero_painettu();//Slotti luotu numero näppäimien painamiselle//
+    void numero_painettu();
+    void numero_painettu_2();//Slotti luotu numero näppäimien painamiselle//
     //void Delete();
     void on_btnOK_clicked();
     void loginSlot (QNetworkReply *reply);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
-   QNetworkAccessManager *loginManager;
-   QNetworkReply *reply;
-    QNetworkAccessManager *tulosta_tiedot;
-   Menu *objPankki;
-   QNetworkReply *nayta_tiedot;
 
+
+    //Network managerit
+   QNetworkAccessManager *loginManager;
+   QNetworkAccessManager *tulosta_tiedot;
+   QNetworkAccessManager *tulosta_Nikkinen;
+
+
+   //Network vastaukset
+   QNetworkReply *reply;
+   QNetworkReply *nayta_tiedot;
+   QNetworkReply *nayta_Nikkinen;
    QNetworkReply *vastaa;
 
-
+    //Luokka oliot
    idtilit_tulostus *objtilit;
    Valikko *objDebit;
    Nosto *objNosto;
    Padelcoin *objPadel;
    Saldo *objSaldo;
    Tilitapahtumat *objTapahtumat;
+   Menu *objPankki;
+
+
+   //Timer hommia
    QTimer *objTimer;
    short timerCounter;
+
+   //QString oliot
    QString Taalasmaa;
    QString Lasse;
    QString Kari;
    QString Sepi;
    QString Jarmo;
+   QString Nikkinen;
+   QString Kuula_Nikkinen;
 
 public slots:
     void menuTimerSlotti();
@@ -65,6 +82,7 @@ public slots:
     void Delismo(const QString &);
     void MustavaaraYhtio(QNetworkReply *reply);
     void TaalasYhtio(QNetworkReply *reply);
+      void NilkkiNikkinen(QNetworkReply *reply);
 
 signals:
     void aikaLoppu();
@@ -72,6 +90,7 @@ signals:
     void signalLakki(const QString &);
     void signalJarmo(const QString &);
     void signalSepi(const QString &);
+    void signalRosvo(const QString &);
 
 
 

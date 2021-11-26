@@ -19,6 +19,7 @@ SOURCES += \
     padelcoin.cpp \
     saldo.cpp \
     tilitapahtumat.cpp \
+    tilitapahtumat_credit.cpp \
     valikko_credit.cpp
 
 HEADERS += \
@@ -30,6 +31,7 @@ HEADERS += \
     padelcoin.h \
     saldo.h \
     tilitapahtumat.h \
+    tilitapahtumat_credit.h \
     valikko_credit.h
 
 FORMS += \
@@ -41,6 +43,7 @@ FORMS += \
     padelcoin.ui \
     saldo.ui \
     tilitapahtumat.ui \
+    tilitapahtumat_credit.ui \
     valikko_credit.ui
 
 # Default rules for deployment.
