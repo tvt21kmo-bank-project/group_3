@@ -27,11 +27,17 @@ public:
 
 
 private slots:
-    void numero_painettu();
-    void numero_painettu_2();//Slotti luotu numero näppäimien painamiselle//
+    void numero_painettu();//Slotti luotu numero näppäimien painamiselle//
     //void Delete();
     void on_btnOK_clicked();
     void loginSlot (QNetworkReply *reply);
+    void IsmonValinta(const QString &);
+    void Delismo(const QString &);
+    void MustavaaraYhtio(QNetworkReply *reply);
+    void TaalasYhtio(QNetworkReply *reply);
+    void NilkkiNikkinen(QNetworkReply *reply);
+    void testiNikkinen(const QString &);
+
 
     void on_pushButton_clicked();
 
@@ -59,6 +65,7 @@ private:
    Saldo *objSaldo;
    Tilitapahtumat *objTapahtumat;
    Menu *objPankki;
+   Valikko_Credit *objCredit;
 
 
    //Timer hommia
@@ -73,16 +80,12 @@ private:
    QString Jarmo;
    QString Nikkinen;
    QString Kuula_Nikkinen;
+   QString Keino_Aki;
 
 public slots:
     void menuTimerSlotti();
     void resetTimer(int);
     void menuHuudettu();
-    void IsmonValinta(const QString &);
-    void Delismo(const QString &);
-    void MustavaaraYhtio(QNetworkReply *reply);
-    void TaalasYhtio(QNetworkReply *reply);
-      void NilkkiNikkinen(QNetworkReply *reply);
 
 signals:
     void aikaLoppu();
