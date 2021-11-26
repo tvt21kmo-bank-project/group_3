@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
-    <height>592</height>
+    <width>515</width>
+    <height>468</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>170</y>
-     <width>161</width>
+     <x>40</x>
+     <y>310</y>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -26,8 +26,8 @@
   <widget class="QPushButton" name="btn40_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>220</y>
+     <x>40</x>
+     <y>140</y>
      <width>176</width>
      <height>31</height>
     </rect>
@@ -86,8 +86,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btn100_2">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>170</y>
+     <x>280</x>
+     <y>80</y>
      <width>176</width>
      <height>31</height>
     </rect>
@@ -146,8 +146,8 @@ QPushButton:pressed {
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>120</y>
+     <x>50</x>
+     <y>250</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -164,8 +164,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btn500_2">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>270</y>
+     <x>280</x>
+     <y>200</y>
      <width>176</width>
      <height>31</height>
     </rect>
@@ -224,8 +224,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btn200_2">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>220</y>
+     <x>280</x>
+     <y>140</y>
      <width>176</width>
      <height>31</height>
     </rect>
@@ -284,10 +284,10 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btnNosta_2">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>270</y>
-     <width>176</width>
-     <height>31</height>
+     <x>280</x>
+     <y>380</y>
+     <width>181</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -344,8 +344,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btn20_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>172</y>
+     <x>40</x>
+     <y>80</y>
      <width>176</width>
      <height>31</height>
     </rect>
@@ -404,8 +404,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btn60_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>270</y>
+     <x>40</x>
+     <y>200</y>
      <width>176</width>
      <height>31</height>
     </rect>
@@ -464,8 +464,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btnMenu_2">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>370</y>
+     <x>40</x>
+     <y>380</y>
      <width>176</width>
      <height>41</height>
     </rect>
@@ -519,6 +519,78 @@ QPushButton:pressed {
    </property>
    <property name="text">
     <string>Menu</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblDebit_nostosumma_2">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>250</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nostettava summa:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Debitdisplay2">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>310</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblkayttaja_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>30</y>
+     <width>331</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblInfo_2">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>440</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
    </property>
   </widget>
  </widget>
