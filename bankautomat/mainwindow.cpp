@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     objPankki=new Menu;
     objDebit = new Valikko;
-    //obj Credit = ...
+    objCredit = new Valikko_Credit;
     objNosto = new Nosto;
     objPadel = new Padelcoin;
     objSaldo = new Saldo;
@@ -56,6 +56,7 @@ MainWindow::MainWindow(QWidget *parent)
          connect(this, SIGNAL(signalLakki (const QString &)),objPadel, SLOT(CoinKoti(const QString &)));
          //Kortin tyyppi
           connect(this, SIGNAL(signalRosvo (const QString &)),objDebit, SLOT(SepinKoti(const QString &)));
+          connect(this, SIGNAL(signalRosvo (const QString &)),this, SLOT(testiNikkinen(const QString &)));
                 //Nimen siirtoa
         connect(this, SIGNAL(signalJarmo (const QString &)),objDebit, SLOT(JarmonKoti(const QString &)));
         connect(this, SIGNAL(signalJarmo (const QString &)),objNosto, SLOT(NimenKoti(const QString &)));
@@ -81,17 +82,7 @@ MainWindow::MainWindow(QWidget *parent)
    connect(ui->btn8,SIGNAL(released()),this,SLOT(numero_painettu()));
    connect(ui->btn9,SIGNAL(released()),this,SLOT(numero_painettu()));
 
-   //2
-   connect(ui->btn0,SIGNAL(released()),this,SLOT(numero_painettu_2()));
-   connect(ui->btn1,SIGNAL(released()),this,SLOT(numero_painettu_2()));
-   connect(ui->btn2,SIGNAL(released()),this,SLOT(numero_painettu_2()));
-   connect(ui->btn3,SIGNAL(released()),this,SLOT(numero_painettu_2()));
-   connect(ui->btn4,SIGNAL(released()),this,SLOT(numero_painettu_2()));
-   connect(ui->btn5,SIGNAL(released()),this,SLOT(numero_painettu_2()));
-   connect(ui->btn6,SIGNAL(released()),this,SLOT(numero_painettu_2()));
-   connect(ui->btn7,SIGNAL(released()),this,SLOT(numero_painettu_2()));
-   connect(ui->btn8,SIGNAL(released()),this,SLOT(numero_painettu_2()));
-   connect(ui->btn9,SIGNAL(released()),this,SLOT(numero_painettu_2()));
+
 
 
    //ui->Display1->setClearButtonEnabled(true);//Delete nappi
@@ -114,11 +105,11 @@ void MainWindow::numero_painettu()
 
  double Numero;
 
+
 //Double muuttuja jotta voidaan muuttaa Qstring arvo Double muotoon että Qt tajuaa laittaa seuraavan numeron äskeisen perään eri säilyttää arvon ruudulla
  QString Uusi_numero;
-
- //QString muuttuja, että saadaan Double arvo tulostettua QStringillä
-
+  QString Uusi_numero2;
+ //QString muuttuja, että saadaan Double arvo tulostettua QStringillä :D LOL
 
  Numero =(ui->Display1->text() + button->text()).toDouble();
 
@@ -126,20 +117,15 @@ void MainWindow::numero_painettu()
 
  ui->Display1->setText(Uusi_numero);
 
+ Uusi_numero2 = QString::number(Numero);
+
+ ui->Display2->setText(Uusi_numero2);
 
 }
 
-void MainWindow::numero_painettu_2()
-{
-    QPushButton* button = (QPushButton*)sender();
-    double Numero_2;
-    QString Uusi_numero2;
-    Numero_2 =(ui->Display2->text() + button->text()).toDouble();
 
-    Uusi_numero2 = QString::number(Numero_2);
 
-    ui->Display2->setText(Uusi_numero2);
-}
+
 
 
 
@@ -298,11 +284,30 @@ void MainWindow::MustavaaraYhtio(QNetworkReply *nayta_tiedot)
         QJsonObject json_obj = value.toObject();
         Aki = json_obj["Kortin_tyyppi"].toString();
         Kuula_Nikkinen = Aki;
-        qDebug()<<Kuula_Nikkinen;
+        qDebug()<<"Kuula_Nikkinen"<<Kuula_Nikkinen;
         emit signalRosvo(Kuula_Nikkinen);
 
         }
 
+    }
+        //testiNikkinen Yeettaa Debit tai Credit valikon näkyviin riitppuen kortin tyypistä testi vaiheessa vielä
+        // ei ole testattu vielä korttia jossa on molemmat debit ja Credit toiminnot tämä kortti pitää ohjata menu valikkoon
+        // jossa valitaan kumpaa puolta halutaan käyttää.
+    void MainWindow::testiNikkinen(const QString &Kuula_Nikkinen)
+    {
+        Keino_Aki = Kuula_Nikkinen;
+
+        if (Keino_Aki=="Debit"){
+            objDebit->show();
+            objPankki->close();
+        }
+        else if (Keino_Aki=="Credit") {
+            objCredit->show();
+            objPankki->close();
+        }
+        else{
+            objPankki->show();
+        }
     }
 
 

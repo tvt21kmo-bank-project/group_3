@@ -8,7 +8,7 @@ const asiakas={
         return db.query('select * from asiakas where idasiakas=?', [id], callback);
     },
     add: function(asiakas, callback) {
-        return db.query('insert into asiakas (Etunimi,Sukunimi) values (?,?)', [ asiakas.Etunimi, asiakas.Sukunimi, ], callback);
+        return db.query('insert into asiakas (idasiakas,Etunimi,Sukunimi) values (?,?,?)', [ asiakas.idasiakas, asiakas.Etunimi, asiakas.Sukunimi, ], callback);
     },
     delete: function(id, callback) {
         return db.query('delete from asiakas where idasiakas=?', [id], callback);
