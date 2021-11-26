@@ -43,7 +43,7 @@ void Saldo::SaldoTulostus(QNetworkReply *reply)
     QJsonObject json_obj = value.toObject();
     hattu+=QString::number(json_obj["Saldo"].toDouble());
     Viikset = hattu;
-    ui->txtSaldo->setText(Viikset + "$");
+    ui->label_2->setText(Viikset + " " + "€");
    // qDebug()<<"LOL"<<Viikset;
 }
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>468</width>
-    <height>679</height>
+    <width>486</width>
+    <height>722</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,7 +21,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QMainwindow {
-background-color:  	'black';
+background-color:  #2F4F4F;
 }   </string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -36,7 +36,7 @@ background-color:  	'black';
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -79,7 +79,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -116,7 +116,7 @@ QPushButton:pressed {
      <widget class="QLabel" name="label_2">
       <property name="font">
        <font>
-        <pointsize>22</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="text">
@@ -134,7 +134,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -177,7 +177,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -214,7 +214,7 @@ QPushButton:pressed {
      <widget class="QLabel" name="label">
       <property name="font">
        <font>
-        <pointsize>22</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="text">
@@ -232,7 +232,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -275,7 +275,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -318,7 +318,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -361,7 +361,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -404,7 +404,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -447,7 +447,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -490,7 +490,7 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>36</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -533,8 +533,22 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>22</pointsize>
+        <pointsize>36</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+
+  background-color:   	#FFFFFF;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    min-width: 10em;
+    padding: 6px;
+	color: black;
+}♣</string>
       </property>
       <property name="maxLength">
        <number>4</number>
@@ -554,11 +568,68 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>22</pointsize>
+        <pointsize>36</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+
+  background-color:   	#FFFFFF;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    min-width: 10em;
+    padding: 6px;
+	color: black;
+}♣</string>
       </property>
       <property name="maxLength">
        <number>4</number>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QPushButton" name="pushButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>36</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+
+  background-color:  #FFFF00;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    min-width: 10em;
+    padding: 6px;
+	color: black;
+}♣
+
+QPushButton:pressed {
+
+  background-color: #808000;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    min-width: 10em;
+    padding: 6px;
+	color: black;
+}♣</string>
+      </property>
+      <property name="text">
+       <string>Clear</string>
       </property>
      </widget>
     </item>
@@ -569,7 +640,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>468</width>
+     <width>486</width>
      <height>21</height>
     </rect>
    </property>
