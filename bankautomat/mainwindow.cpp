@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     objPankki=new Menu;
     objDebit = new Valikko;
-    //obj Credit = ...
+    //objCredit = new Valikko_Credit;
     objNosto = new Nosto;
     objPadel = new Padelcoin;
     objSaldo = new Saldo;

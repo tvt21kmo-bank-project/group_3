@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="btnSaldo">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>330</y>
+     <x>50</x>
+     <y>300</y>
      <width>241</width>
      <height>91</height>
     </rect>
@@ -65,8 +65,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btnNosto">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>160</y>
+     <x>370</x>
+     <y>140</y>
      <width>241</width>
      <height>91</height>
     </rect>
@@ -114,8 +114,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btnTilitapahtumat">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>160</y>
+     <x>50</x>
+     <y>140</y>
      <width>241</width>
      <height>91</height>
     </rect>
@@ -163,8 +163,8 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btnUlos">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>330</y>
+     <x>370</x>
+     <y>300</y>
      <width>241</width>
      <height>91</height>
     </rect>

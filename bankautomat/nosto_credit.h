@@ -18,18 +18,13 @@ public:
     explicit Nosto_Credit(QWidget *parent = nullptr);
     ~Nosto_Credit();
 
-public slots:
 
-    void NimenKoti(const QString &);
-    void IDKoti(const QString &);
-    void TiliKoti(QNetworkReply *reply);
-   void NostoLOL(const QString &);
 
 private slots:
 
-     void maara_painettu();
+     //void maara_painettu();
 
-     void on_btnMenu_2_clicked();
+     //void on_btnMenu_2_clicked();
 
      void on_btnNosta_2_clicked();
 
@@ -38,11 +33,7 @@ private:
     int timerNmbr;
     QNetworkAccessManager *debitManager;
     QNetworkReply *reply;
-    QString NostoNimi;
-      QString NostoId;
-      QString NostoTili;
-       const QString Mauri = "1004";
-       QString Numerolol;
+
 };
 
 #endif // NOSTO_CREDIT_H

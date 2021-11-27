@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "Valikko.h"
+#include "valikko_credit.h"
 #include "menu.h"
 
 #include <QMainWindow>
@@ -43,8 +44,9 @@ private:
    QNetworkReply *vastaa;
 
 
-   idtilit_tulostus *objtilit;
+
    Valikko *objDebit;
+  // Valikko_Credit *objCredit;
    Nosto *objNosto;
    Padelcoin *objPadel;
    Saldo *objSaldo;

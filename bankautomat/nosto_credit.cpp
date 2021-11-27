@@ -7,7 +7,7 @@ Nosto_Credit::Nosto_Credit(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+/*
     connect(ui->btn20_2,SIGNAL(released()),this,SLOT(maara_painettu()));
     connect(ui->btn40_2,SIGNAL(released()),this,SLOT(maara_painettu()));
     connect(ui->btn60_2,SIGNAL(released()),this,SLOT(maara_painettu()));
@@ -17,7 +17,7 @@ Nosto_Credit::Nosto_Credit(QWidget *parent) :
 
      ui-> Debitdisplay2->setClearButtonEnabled(true);//Delete nappi
 
-
+*/
 }
 
 Nosto_Credit::~Nosto_Credit()
@@ -32,7 +32,7 @@ void Nosto_Credit::on_btnNosta_2_clicked()
 
 }
 
-void Nosto_Credit::maara_painettu()
+/*void Nosto_Credit::maara_painettu()
 {
     QPushButton* button1 = (QPushButton*)sender(); //Luodaan QPushbutton olio
 
@@ -45,3 +45,4 @@ void Nosto_Credit::maara_painettu()
 
     Uusi_numero = QString::number(Numero);
 }
+*/
