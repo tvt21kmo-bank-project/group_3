@@ -18,12 +18,21 @@ public:
     explicit tilitapahtumat_credit(QWidget *parent = nullptr);
     ~tilitapahtumat_credit();
 
+public slots:
+
+void TapahtumaCreditKoti(const QString &);
+void TapahtumaCreditTulostus(QNetworkReply *reply);
+
 private slots:
     void on_btnMenu_clicked();
 
 private:
     Ui::tilitapahtumat_credit *ui;
      int timerNmbr;
+     QString CreditTapahtumaId;
+     QNetworkAccessManager *CreditTapahtumaManager;
+     QNetworkReply *reply;
+     QString CreditParta;
 
 signals:
        void resetTimerCreditTapahtumastaValikkoon(int);

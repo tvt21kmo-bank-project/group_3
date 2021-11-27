@@ -13,6 +13,18 @@ Valikko_Credit::~Valikko_Credit()
     delete ui;
 }
 
+void Valikko_Credit::JarmonCreditKoti(const QString &Jarmo)
+{
+    CreditRolf = Jarmo;
+    ui->lblTervehdys->setText(CreditRolf);
+}
+
+void Valikko_Credit::SepinCreditKoti(const QString &Kuula_Nikkinen)
+{
+    CreditUlla = Kuula_Nikkinen;
+    ui->lblTervehdys_2->setText(CreditUlla);
+}
+
 void Valikko_Credit::on_btnTilitapahtumat_clicked()
 {
     timerNmbr = 12;
