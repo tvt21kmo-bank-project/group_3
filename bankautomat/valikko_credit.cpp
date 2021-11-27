@@ -15,20 +15,25 @@ Valikko_Credit::~Valikko_Credit()
 
 void Valikko_Credit::on_btnTilitapahtumat_clicked()
 {
+    timerNmbr = 12;
+    emit resetTimerCreditTapahtumat(timerNmbr);
 
 }
 void Valikko_Credit::on_btnSaldo_clicked()
 {
-
+    timerNmbr = 13;
+    emit resetTimerCreditSaldo(timerNmbr);
 }
 void Valikko_Credit::on_btnNosto_clicked()
 {
-
+    timerNmbr = 14;
+    emit resetTimerCreditNosto(timerNmbr);
 }
 
 void Valikko_Credit::on_btnUlos_clicked()
 {
-
+    timerNmbr = 15;
+    emit resetTimerCreditUlos(timerNmbr);
 }
 
 

@@ -66,6 +66,9 @@ private:
    Tilitapahtumat *objTapahtumat;
    Menu *objPankki;
    Valikko_Credit *objCredit;
+   Saldo_credit *objCreditSaldo;
+   tilitapahtumat_credit *objCreditTapahtumat;
+   Nosto_Credit *objCreditNosto;
 
 
    //Timer hommia

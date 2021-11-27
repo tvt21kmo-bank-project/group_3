@@ -2,6 +2,9 @@
 #define TILITAPAHTUMAT_CREDIT_H
 
 #include <QDialog>
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
 
 namespace Ui {
 class tilitapahtumat_credit;
@@ -20,6 +23,11 @@ private slots:
 
 private:
     Ui::tilitapahtumat_credit *ui;
+     int timerNmbr;
+
+signals:
+       void resetTimerCreditTapahtumastaValikkoon(int);
+
 };
 
 #endif // TILITAPAHTUMAT_CREDIT_H

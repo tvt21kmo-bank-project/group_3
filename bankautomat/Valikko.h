@@ -6,6 +6,9 @@
 #include "tilitapahtumat.h"
 #include "idtilit_tulostus.h"
 #include "valikko_credit.h"
+#include "tilitapahtumat_credit.h"
+#include "nosto_credit.h"
+#include "saldo_credit.h"
 #include <QDialog>
 #include <QtNetwork>
 #include <QNetworkAccessManager>

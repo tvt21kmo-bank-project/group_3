@@ -15,6 +15,7 @@ tilitapahtumat_credit::~tilitapahtumat_credit()
 
 void tilitapahtumat_credit::on_btnMenu_clicked()
 {
-
+    timerNmbr= 18;
+     resetTimerCreditTapahtumastaValikkoon(timerNmbr);
 }
 

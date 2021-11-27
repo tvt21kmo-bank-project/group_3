@@ -20,18 +20,19 @@ public:
 
 public slots:
 
-    void NimenKoti(const QString &);
+   void NimenKoti(const QString &);
     void IDKoti(const QString &);
     void TiliKoti(QNetworkReply *reply);
    void NostoLOL(const QString &);
+      void on_btnNosta_2_clicked();
 
 private slots:
 
      void maara_painettu();
 
-     void on_btnMenu_2_clicked();
+    void on_btnMenu_2_clicked();
 
-     void on_btnNosta_2_clicked();
+
 
 private:
     Ui::Nosto_Credit *ui;
@@ -43,6 +44,10 @@ private:
       QString NostoTili;
        const QString Mauri = "1004";
        QString Numerolol;
+
+ signals:
+        void resetTimerCreditNostostaValikkoon(int);
+
 };
 
 #endif // NOSTO_CREDIT_H
