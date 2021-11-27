@@ -25,6 +25,26 @@ Nosto_Credit::~Nosto_Credit()
     delete ui;
 }
 
+void Nosto_Credit::NimenKoti(const QString &)
+{
+
+}
+
+void Nosto_Credit::IDKoti(const QString &)
+{
+
+}
+
+void Nosto_Credit::TiliKoti(QNetworkReply *reply)
+{
+
+}
+
+void Nosto_Credit::NostoLOL(const QString &)
+{
+
+}
+
 
 
 void Nosto_Credit::on_btnNosta_2_clicked()
@@ -44,4 +64,10 @@ void Nosto_Credit::maara_painettu()
     Numero =(ui->Debitdisplay2->text() + button1->text()).toDouble();
 
     Uusi_numero = QString::number(Numero);
+}
+
+void Nosto_Credit::on_btnMenu_2_clicked()
+{
+    timerNmbr= 16;
+    resetTimerCreditNostostaValikkoon(timerNmbr);
 }

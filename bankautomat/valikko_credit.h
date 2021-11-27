@@ -2,6 +2,12 @@
 #define VALIKKO_CREDIT_H
 
 #include <QDialog>
+#include <QDialog>
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
+#include <QFile>
+#include <QTextStream>
 
 namespace Ui {
 class Valikko_Credit;
@@ -26,6 +32,17 @@ private slots:
 
 private:
     Ui::Valikko_Credit *ui;
+    QNetworkAccessManager *creditManager;
+    QNetworkAccessManager *debitManager;
+    QNetworkReply *reply;
+    int timerNmbr;
+
+
+signals:
+    void resetTimerCreditNosto(int);
+    void resetTimerCreditSaldo(int);
+    void resetTimerCreditTapahtumat(int);
+    void resetTimerCreditUlos(int);
 };
 
 #endif // VALIKKO_CREDIT_H

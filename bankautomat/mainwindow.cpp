@@ -18,11 +18,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     objPankki=new Menu;
     objDebit = new Valikko;
-    objCredit = new Valikko_Credit;
     objNosto = new Nosto;
     objPadel = new Padelcoin;
     objSaldo = new Saldo;
     objTapahtumat = new Tilitapahtumat;
+    objCredit = new Valikko_Credit;
+    objCreditSaldo = new Saldo_credit;
+    objCreditTapahtumat = new tilitapahtumat_credit;
+    objCreditNosto = new Nosto_Credit;
+
 
 
     //tässä alla luodaan timer ja määritetään SIGNAL/SLOT yhteydet, jotta ohjelma tietää milloin sulkea ikkuna.
@@ -40,10 +44,28 @@ MainWindow::MainWindow(QWidget *parent)
         QObject::connect(objDebit, SIGNAL(resetTimerTapahtumat(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerUlos(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerTiedot(int)), this, SLOT(resetTimer(int)));
+        //Credit puoli
+         QObject::connect(objCredit, SIGNAL(resetTimerCreditNosto(int)), this, SLOT(resetTimer(int)));
+         QObject::connect(objCredit, SIGNAL(resetTimerCreditSaldo(int)), this, SLOT(resetTimer(int)));
+         QObject::connect(objCredit, SIGNAL(resetTimerCreditTapahtumat(int)), this, SLOT(resetTimer(int)));
+         QObject::connect(objCredit, SIGNAL(resetTimerCreditUlos(int)), this, SLOT(resetTimer(int)));
+
+
+
         QObject::connect(objNosto, SIGNAL(resetTimerNostostaValikkoon(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objPadel, SIGNAL(resetTimerPadelistaValikkoon(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objSaldo, SIGNAL(resetTimerSaldostaValikkoon(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objTapahtumat, SIGNAL(resetTimerTapahtumistaValikkoon(int)), this, SLOT(resetTimer(int)));
+
+         QObject::connect(objCreditNosto, SIGNAL(resetTimerCreditNostostaValikkoon(int)), this, SLOT(resetTimer(int)));
+          QObject::connect(objCreditSaldo, SIGNAL(resetTimerCreditSaldoValikkoon(int)), this, SLOT(resetTimer(int)));
+          QObject::connect(objCreditTapahtumat, SIGNAL(resetTimerCreditTapahtumastaValikkoon(int)), this, SLOT(resetTimer(int)));
+
+
+
+
+
+
         connect(this, SIGNAL(aikaLoppu()), objPankki, SLOT(aikaMeni()));    //pohjustetaan MainWindown aikaLoppu() signaalin yhteys menu-ikkunan aikaMeni() slottiin
         connect(objPankki, SIGNAL(palaaMenuun()), this, SLOT(menuHuudettu()));
        // ALLA TIEDON SAIIRTO SEKOILUA
@@ -400,6 +422,49 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
            objTimer->start();
        }
 
+       //Credit puoli menu hommia
+       if(jokuIkkuna == 12)
+       {
+           objCredit->close();
+           objCreditTapahtumat->show();
+           objTimer->start();
+       }
+       if(jokuIkkuna == 13)
+       {
+           objCredit->close();
+           objCreditSaldo->show();
+           objTimer->start();
+       }
+       if(jokuIkkuna == 14)
+       {
+           objCredit->close();
+           objCreditNosto->show();
+           objTimer->start();
+       }
+       if(jokuIkkuna == 15)
+       {
+           objCredit->close();
+           objTimer->stop();
+       }
+       if(jokuIkkuna == 16)
+       {
+           objCreditNosto->close();
+           objCredit->show();
+           objTimer->start();
+       }
+       if(jokuIkkuna == 17)
+       {
+           objCreditSaldo->close();
+           objCredit->show();
+           objTimer->start();
+       }
+       if(jokuIkkuna == 18)
+       {
+           objCreditTapahtumat->close();
+           objCredit->show();
+           objTimer->start();
+       }
+
 
 
 
@@ -414,6 +479,10 @@ void MainWindow::menuHuudettu() //MENU-LUOKKA LÄHETTÄÄ SIGNAALIN TÄHÄN SLOT
     objPadel->close();
     objSaldo->close();
     objTapahtumat->close();
+    objCredit->close();
+    objCreditNosto->close();
+    objCreditSaldo->close();
+    objCreditTapahtumat->close();
 }
 
 

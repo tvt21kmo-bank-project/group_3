@@ -18,6 +18,7 @@ SOURCES += \
     nosto_credit.cpp \
     padelcoin.cpp \
     saldo.cpp \
+    saldo_credit.cpp \
     tilitapahtumat.cpp \
     tilitapahtumat_credit.cpp \
     valikko_credit.cpp
@@ -30,6 +31,7 @@ HEADERS += \
     nosto_credit.h \
     padelcoin.h \
     saldo.h \
+    saldo_credit.h \
     tilitapahtumat.h \
     tilitapahtumat_credit.h \
     valikko_credit.h
@@ -42,6 +44,7 @@ FORMS += \
     nosto_credit.ui \
     padelcoin.ui \
     saldo.ui \
+    saldo_credit.ui \
     tilitapahtumat.ui \
     tilitapahtumat_credit.ui \
     valikko_credit.ui
