@@ -100,11 +100,11 @@ void Nosto::TiliKoti(QNetworkReply *reply)
     QByteArray response_data=reply->readAll();
     qDebug()<<response_data;
     if(response_data == "1"){
-        ui->lblkayttaja_2->setText("Siirto onnistui");
+        ui->lblInfo->setText("Nosto onnistui");
 
     }
     else {
-        ui->lblkayttaja_2->setText("Siirto epäonnistui");
+        ui->lblInfo->setText("Nosto epäonnistui");
 
     }
     Numerolol = ("");
