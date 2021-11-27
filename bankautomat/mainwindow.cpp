@@ -73,18 +73,26 @@ MainWindow::MainWindow(QWidget *parent)
         connect(this, SIGNAL(signalLakki (const QString &)),this, SLOT(Delismo(const QString &)));
          connect(this, SIGNAL(signalLakki (const QString &)),this, SLOT(IsmonValinta(const QString &)));
         connect(this, SIGNAL(signalLakki (const QString &)),objSaldo, SLOT(SaldoKoti(const QString &)));
+             connect(this, SIGNAL(signalLakki (const QString &)),objCreditSaldo, SLOT(SaldoCreditKoti(const QString &)));
         connect(this, SIGNAL(signalLakki (const QString &)),objTapahtumat, SLOT(TapahtumaKoti(const QString &)));
+           connect(this, SIGNAL(signalLakki (const QString &)),objCreditTapahtumat, SLOT(TapahtumaCreditKoti(const QString &)));
         connect(this, SIGNAL(signalLakki (const QString &)),objNosto, SLOT(NostoLOL(const QString &)));
+          connect(this, SIGNAL(signalLakki (const QString &)),objCreditNosto, SLOT(NostoCreditLOL(const QString &)));
          connect(this, SIGNAL(signalLakki (const QString &)),objPadel, SLOT(CoinKoti(const QString &)));
          //Kortin tyyppi
           connect(this, SIGNAL(signalRosvo (const QString &)),objDebit, SLOT(SepinKoti(const QString &)));
+           connect(this, SIGNAL(signalRosvo (const QString &)),objCredit, SLOT(SepinCreditKoti(const QString &)));
           connect(this, SIGNAL(signalRosvo (const QString &)),this, SLOT(testiNikkinen(const QString &)));
                 //Nimen siirtoa
         connect(this, SIGNAL(signalJarmo (const QString &)),objDebit, SLOT(JarmonKoti(const QString &)));
+        connect(this, SIGNAL(signalJarmo (const QString &)),objCredit, SLOT(JarmonCreditKoti(const QString &)));
         connect(this, SIGNAL(signalJarmo (const QString &)),objNosto, SLOT(NimenKoti(const QString &)));
+         connect(this, SIGNAL(signalJarmo (const QString &)),objCreditNosto, SLOT(NimenCreditKoti(const QString &)));
+
       // Lähettää asiakkaan idtilin
        // connect(this, SIGNAL(signalSepi (const QString &)),objDebit, SLOT(SepinKoti(const QString &)));
          connect(this, SIGNAL(signalSepi (const QString &)),objNosto, SLOT(IDKoti(const QString &)));
+         connect(this, SIGNAL(signalSepi (const QString &)),objCreditNosto, SLOT(IDCreditKoti(const QString &)));
 
 
 

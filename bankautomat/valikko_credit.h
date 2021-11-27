@@ -21,6 +21,12 @@ public:
     explicit Valikko_Credit(QWidget *parent = nullptr);
     ~Valikko_Credit();
 
+public slots:
+
+    void JarmonCreditKoti(const QString &);
+    void SepinCreditKoti(const QString &);
+
+
 private slots:
     void on_btnTilitapahtumat_clicked();
 
@@ -36,6 +42,8 @@ private:
     QNetworkAccessManager *debitManager;
     QNetworkReply *reply;
     int timerNmbr;
+    QString CreditRolf;
+    QString CreditUlla;
 
 
 signals:

@@ -38,6 +38,11 @@ void Nosto::IDKoti(const QString &Sepi)
     //ui->lblkayttaja_2->setText(NostoId);
 }
 
+void Nosto::NostoLOL(const QString &Taalasmaa)
+{
+     NostoTili = Taalasmaa;
+}
+
 
 
 void Nosto::maara_painettu()
@@ -67,29 +72,29 @@ void Nosto::on_btnMenu_clicked()
 void Nosto::on_btnNosta_clicked()
 {
 
-     qDebug()<<Mauri<<NostoTili;
-    QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id1",NostoTili);
-    json.insert("id2", Mauri);
-    if (Numerolol > 0){
-         json.insert("summa",Numerolol);
-    }
-    else {
-        json.insert("summa", ui->muuSumma->text());
+    qDebug()<<Mauri<<NostoTili;
+   QJsonObject json; //luodaan JSON objekti ja lisätään data
+   json.insert("id1",NostoTili);
+   json.insert("id2", Mauri);
+   if (Numerolol > 0){
+        json.insert("summa",Numerolol);
+   }
+   else {
+       json.insert("summa", ui->muuSumma->text());
 
-    }
+   }
 
-    QString site_url="http://localhost:3000/bank/debit_transfer";
-    QString credentials="newAdmin:newPass";
-    QNetworkRequest request((site_url));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    QByteArray data = credentials.toLocal8Bit().toBase64();
-    QString headerData = "Basic " + data;
-    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
-    debitManager = new QNetworkAccessManager(this);
-    connect(debitManager, SIGNAL(finished (QNetworkReply*)),
-    this, SLOT(TiliKoti(QNetworkReply*)));
-    reply = debitManager->post(request, QJsonDocument(json).toJson());
+   QString site_url="http://localhost:3000/bank/debit_transfer";
+   QString credentials="pankki_admin:bosspankki";
+   QNetworkRequest request((site_url));
+   request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+   QByteArray data = credentials.toLocal8Bit().toBase64();
+   QString headerData = "Basic " + data;
+   request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+   debitManager = new QNetworkAccessManager(this);
+   connect(debitManager, SIGNAL(finished (QNetworkReply*)),
+   this, SLOT(TiliKoti(QNetworkReply*)));
+   reply = debitManager->post(request, QJsonDocument(json).toJson());
 
 }
 
@@ -112,8 +117,5 @@ void Nosto::TiliKoti(QNetworkReply *reply)
     ui->muuSumma->setText("");
 }
 
-void Nosto::NostoLOL(const QString &Taalasmaa)
-{
-     NostoTili = Taalasmaa;
-}
+
 

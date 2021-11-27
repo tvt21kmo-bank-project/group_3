@@ -20,10 +20,17 @@ public:
 
 public slots:
     void on_btnMenu_clicked();
+    void SaldoCreditKoti(const QString &);
+    void SaldoCreditTulostus(QNetworkReply *reply);
+
 
 private:
     Ui::Saldo_credit *ui;
     int timerNmbr;
+    QString CreditSaldoId;
+    QNetworkAccessManager *CreditSaldoManager;
+    QNetworkReply *reply;
+    QString CreditViikset;
 
 signals:
        void resetTimerCreditSaldoValikkoon(int);
