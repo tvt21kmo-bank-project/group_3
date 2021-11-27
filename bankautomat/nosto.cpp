@@ -76,6 +76,7 @@ void Nosto::on_btnNosta_clicked()
     }
     else {
         json.insert("summa", ui->muuSumma->text());
+
     }
 
     QString site_url="http://localhost:3000/bank/debit_transfer";
@@ -89,6 +90,7 @@ void Nosto::on_btnNosta_clicked()
     connect(debitManager, SIGNAL(finished (QNetworkReply*)),
     this, SLOT(TiliKoti(QNetworkReply*)));
     reply = debitManager->post(request, QJsonDocument(json).toJson());
+
 }
 
 
@@ -105,8 +107,9 @@ void Nosto::TiliKoti(QNetworkReply *reply)
         ui->lblInfo->setText("Nosto epäonnistui");
 
     }
-    Numerolol = "0";
+    Numerolol = ("");
     ui->Debitdisplay->setText("");
+    ui->muuSumma->setText("");
 }
 
 void Nosto::NostoLOL(const QString &Taalasmaa)

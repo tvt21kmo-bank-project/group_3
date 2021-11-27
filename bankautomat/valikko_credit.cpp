@@ -12,3 +12,27 @@ Valikko_Credit::~Valikko_Credit()
 {
     delete ui;
 }
+
+void Valikko_Credit::on_btnTilitapahtumat_clicked()
+{
+
+}
+void Valikko_Credit::on_btnSaldo_clicked()
+{
+
+}
+void Valikko_Credit::on_btnNosto_clicked()
+{
+
+}
+
+void Valikko_Credit::on_btnUlos_clicked()
+{
+
+}
+
+
+
+
+
+

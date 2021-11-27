@@ -8,7 +8,7 @@ const tilit={
         return db.query('select * from tilit where idtilit=?', [id], callback);
     },
     add: function(tilit, callback) {
-        return db.query('insert into tilit (idOmistaja,Tilinumero,Saldo,Kortin_tyyppi,Luottoraja) values (?,?,?,?,?)', [tilit.idOmistaja, tilit.Tilinumero, tilit.Saldo, tilit.Kortin_tyyppi, tilit.Luottoraja], callback);
+        return db.query('insert into tilit (idtilit, Tilinumero,Saldo,Kortin_tyyppi,Luottoraja, Padelcoin ) values (?,?,?,?,?,?)', [ tilit.idtilit, tilit.Tilinumero, tilit.Saldo, tilit.Kortin_tyyppi, tilit.Luottoraja, tilit.Padelcoin], callback);
     },
     delete: function(id, callback) {
         return db.query('delete from tilit where idtilit=?', [id], callback);

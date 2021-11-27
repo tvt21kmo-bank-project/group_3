@@ -1,9 +1,10 @@
 const mysql = require('mysql');
 const connection = mysql.createPool({
   host: 'localhost',
-  port:'8889',
-  user: 'pankki_admin',
-  password: 'bosspankki',
+
+  //port:'3306',
+  user: 'pankki_admin',//pankki_admin
+  password: 'bosspankki', //bosspankki
   database: 'pankki'
 });
 module.exports = connection;

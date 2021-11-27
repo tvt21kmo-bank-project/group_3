@@ -24,9 +24,10 @@ void Valikko::JarmonKoti(const QString &Jarmo)
 
 }
 
-void Valikko::SepinKoti(const QString &Sepi)
+void Valikko::SepinKoti(const QString &Kuula_Nikkinen)
 {
-    Ulla = Sepi;
+    Ulla = Kuula_Nikkinen;
+    qDebug()<<Ulla;
     ui->lblTervehdys_2->setText(Ulla);
 }
 

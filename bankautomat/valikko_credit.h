@@ -15,6 +15,15 @@ public:
     explicit Valikko_Credit(QWidget *parent = nullptr);
     ~Valikko_Credit();
 
+private slots:
+    void on_btnTilitapahtumat_clicked();
+
+    void on_btnUlos_clicked();
+
+    void on_btnSaldo_clicked();
+
+    void on_btnNosto_clicked();
+
 private:
     Ui::Valikko_Credit *ui;
 };

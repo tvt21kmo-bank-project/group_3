@@ -31,40 +31,61 @@ private slots:
     //void Delete();
     void on_btnOK_clicked();
     void loginSlot (QNetworkReply *reply);
+    void IsmonValinta(const QString &);
+    void Delismo(const QString &);
+    void MustavaaraYhtio(QNetworkReply *reply);
+    void TaalasYhtio(QNetworkReply *reply);
+    void NilkkiNikkinen(QNetworkReply *reply);
+    void testiNikkinen(const QString &);
+
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
-   QNetworkAccessManager *loginManager;
-   QNetworkReply *reply;
-    QNetworkAccessManager *tulosta_tiedot;
-   Menu *objPankki;
-   QNetworkReply *nayta_tiedot;
 
+
+    //Network managerit
+   QNetworkAccessManager *loginManager;
+   QNetworkAccessManager *tulosta_tiedot;
+   QNetworkAccessManager *tulosta_Nikkinen;
+
+
+   //Network vastaukset
+   QNetworkReply *reply;
+   QNetworkReply *nayta_tiedot;
+   QNetworkReply *nayta_Nikkinen;
    QNetworkReply *vastaa;
 
-
+    //Luokka oliot
    idtilit_tulostus *objtilit;
    Valikko *objDebit;
    Nosto *objNosto;
    Padelcoin *objPadel;
    Saldo *objSaldo;
    Tilitapahtumat *objTapahtumat;
+   Menu *objPankki;
+   Valikko_Credit *objCredit;
+
+
+   //Timer hommia
    QTimer *objTimer;
    short timerCounter;
+
+   //QString oliot
    QString Taalasmaa;
    QString Lasse;
    QString Kari;
    QString Sepi;
    QString Jarmo;
+   QString Nikkinen;
+   QString Kuula_Nikkinen;
+   QString Keino_Aki;
 
 public slots:
     void menuTimerSlotti();
     void resetTimer(int);
     void menuHuudettu();
-    void IsmonValinta(const QString &);
-    void Delismo(const QString &);
-    void MustavaaraYhtio(QNetworkReply *reply);
-    void TaalasYhtio(QNetworkReply *reply);
 
 signals:
     void aikaLoppu();
@@ -72,6 +93,7 @@ signals:
     void signalLakki(const QString &);
     void signalJarmo(const QString &);
     void signalSepi(const QString &);
+    void signalRosvo(const QString &);
 
 
 

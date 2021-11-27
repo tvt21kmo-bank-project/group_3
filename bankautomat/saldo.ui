@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1001</width>
+    <width>692</width>
     <height>504</height>
    </rect>
   </property>
@@ -21,26 +21,26 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>40</y>
-     <width>221</width>
-     <height>16</height>
+     <x>110</x>
+     <y>180</y>
+     <width>161</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>14</pointsize>
+     <pointsize>26</pointsize>
     </font>
    </property>
    <property name="text">
-    <string>Saldo</string>
+    <string>Saldosi:</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnMenu">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>320</y>
+     <x>180</x>
+     <y>340</y>
      <width>261</width>
      <height>51</height>
     </rect>
@@ -74,14 +74,22 @@ QPushButton:pressed {
     <string>Menu</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="txtSaldo">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>110</y>
-     <width>421</width>
-     <height>151</height>
+     <x>320</x>
+     <y>190</y>
+     <width>261</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>26</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
