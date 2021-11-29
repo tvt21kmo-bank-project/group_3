@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
 
         connect(objTimer, SIGNAL(timeout()), this, SLOT(menuTimerSlotti())); //Timerin toimintaan vaadittava signaali, menuTimerSlotissa tapahtuu 30 sekunnin ajanotto
         QObject::connect(objPankki, SIGNAL(resetTimerDebit(int)), this, SLOT(resetTimer(int)));
+       QObject::connect(objPankki, SIGNAL(resetTimerCredit(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerNosto(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerPadel(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerSaldo(int)), this, SLOT(resetTimer(int)));
@@ -45,7 +46,8 @@ MainWindow::MainWindow(QWidget *parent)
         QObject::connect(objDebit, SIGNAL(resetTimerUlos(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objDebit, SIGNAL(resetTimerTiedot(int)), this, SLOT(resetTimer(int)));
         //Credit puoli
-         QObject::connect(objCredit, SIGNAL(resetTimerCreditNosto(int)), this, SLOT(resetTimer(int)));
+         QObject::connect(objCreditNosto, SIGNAL(resetTimerCreditAki(int)), this, SLOT(resetTimer(int)));
+          QObject::connect(objCredit, SIGNAL(resetTimerCreditNosto(int)), this, SLOT(resetTimer(int)));
          QObject::connect(objCredit, SIGNAL(resetTimerCreditSaldo(int)), this, SLOT(resetTimer(int)));
          QObject::connect(objCredit, SIGNAL(resetTimerCreditTapahtumat(int)), this, SLOT(resetTimer(int)));
          QObject::connect(objCredit, SIGNAL(resetTimerCreditUlos(int)), this, SLOT(resetTimer(int)));
@@ -53,6 +55,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
         QObject::connect(objNosto, SIGNAL(resetTimerNostostaValikkoon(int)), this, SLOT(resetTimer(int)));
+         QObject::connect(objNosto, SIGNAL(resetTimerJapi(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objPadel, SIGNAL(resetTimerPadelistaValikkoon(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objSaldo, SIGNAL(resetTimerSaldostaValikkoon(int)), this, SLOT(resetTimer(int)));
         QObject::connect(objTapahtumat, SIGNAL(resetTimerTapahtumistaValikkoon(int)), this, SLOT(resetTimer(int)));
@@ -334,15 +337,15 @@ void MainWindow::MustavaaraYhtio(QNetworkReply *nayta_tiedot)
         Keino_Aki = Kuula_Nikkinen;
 
         if (Keino_Aki=="Debit"){
-            objDebit->show();
+            objDebit->showFullScreen();
             objPankki->close();
         }
         else if (Keino_Aki=="Credit") {
-            objCredit->show();
+            objCredit->showFullScreen();
             objPankki->close();
         }
         else{
-            objPankki->show();
+            objPankki->showFullScreen();
         }
     }
 
@@ -358,7 +361,7 @@ void MainWindow::menuTimerSlotti()
 {
     timerCounter++; //timerCounter-muuttujan arvo kasvaa yhdellä joka sekunti
     qDebug()<<timerCounter;
-    if(timerCounter == 5) // kun timerCounter saavuttaa arvon 30 sek, (tai tässä testimielessä 5 sek)
+    if(timerCounter == 20) // kun timerCounter saavuttaa arvon 30 sek, (tai tässä testimielessä 5 sek)
     {
         emit aikaLoppu();   //niin aikaLoppu() -signaali lähetetään menu-luokan slottiin
         objTimer->stop();
@@ -372,36 +375,37 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
     if(jokuIkkuna == 1)  //esimerkiksi tässä, menu-luokan on_btnDebit_clicked() -funktio lähettää signaalin mukana arvon 1, joka
     {                    //menee jokuIkkuna -muuttujaan. jokuIkkuna -muuttujan arvo määrittää mitä tässä funktiossa tehdään.
         objPankki->close();
-        objDebit->show();
+        objDebit->showFullScreen();
         objTimer->start();
     }
     if(jokuIkkuna == 2)
     {
         objPankki->close();
+        objCredit->showFullScreen();
         objTimer->start();
     }
     if(jokuIkkuna == 3)
     {
         objDebit->close();
-        objNosto->show();
+        objNosto->showFullScreen();
         objTimer->start();
     }
     if(jokuIkkuna == 4)
     {
         objDebit->close();
-        objPadel->show();
+        objPadel->showFullScreen();
         objTimer->start();
     }
         if(jokuIkkuna == 5)
          {
         objDebit->close();
-        objSaldo->show();
+        objSaldo->showFullScreen();
         objTimer->start();
         }
          if(jokuIkkuna == 6)
          {
         objDebit->close();
-        objTapahtumat->show();
+        objTapahtumat->showFullScreen();
         objTimer->start();
           }
          if(jokuIkkuna == 7)
@@ -413,25 +417,25 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
          if(jokuIkkuna == 8)
         {
            objNosto->close();
-           objDebit->show();
+           objDebit->showFullScreen();
            objTimer->start();
        }
        if(jokuIkkuna == 9)
        {
            objPadel->close();
-           objDebit->show();
+           objDebit->showFullScreen();
            objTimer->start();
        }
        if(jokuIkkuna == 10)
        {
            objSaldo->close();
-           objDebit->show();
+           objDebit->showFullScreen();
            objTimer->start();
        }
        if(jokuIkkuna == 11)
        {
            objTapahtumat->close();
-           objDebit->show();
+           objDebit->showFullScreen();
            objTimer->start();
        }
 
@@ -439,19 +443,19 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
        if(jokuIkkuna == 12)
        {
            objCredit->close();
-           objCreditTapahtumat->show();
+           objCreditTapahtumat->showFullScreen();
            objTimer->start();
        }
        if(jokuIkkuna == 13)
        {
            objCredit->close();
-           objCreditSaldo->show();
+           objCreditSaldo->showFullScreen();
            objTimer->start();
        }
        if(jokuIkkuna == 14)
        {
            objCredit->close();
-           objCreditNosto->show();
+           objCreditNosto->showFullScreen();
            objTimer->start();
        }
        if(jokuIkkuna == 15)
@@ -462,19 +466,28 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
        if(jokuIkkuna == 16)
        {
            objCreditNosto->close();
-           objCredit->show();
+           objCredit->showFullScreen();
            objTimer->start();
        }
        if(jokuIkkuna == 17)
        {
            objCreditSaldo->close();
-           objCredit->show();
+           objCredit->showFullScreen();
            objTimer->start();
        }
        if(jokuIkkuna == 18)
        {
            objCreditTapahtumat->close();
-           objCredit->show();
+           objCredit->showFullScreen();
+           objTimer->start();
+       }
+       if(jokuIkkuna == 19)
+       {
+           objTimer->start();
+       }
+
+       if(jokuIkkuna == 20)
+       {
            objTimer->start();
        }
 
@@ -509,5 +522,11 @@ void MainWindow::on_pushButton_clicked()
     ui->Display1->setText("");
     ui->Display2->setText("");
 
+}
+
+
+void MainWindow::on_btnSulje_clicked()
+{
+    this->close();
 }
 

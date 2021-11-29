@@ -37,6 +37,7 @@ private:
 
 signals:
     void resetTimerSaldostaValikkoon(int);
+
 };
 
 #endif // SALDO_H

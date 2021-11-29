@@ -22,8 +22,8 @@ void Menu::on_btnDebit_clicked()
 void Menu::on_btnCredit_clicked()
 {
 
-    //timerNmbr = 2;
-    //emit resetTimerCredit(timerNmbr);
+    timerNmbr = 2;
+    emit resetTimerCredit(timerNmbr);
 }
 
 void Menu::aikaMeni() //aikaMeni on slotti, joka ottaa vastaan MainWindown menuTimerSlotin lähettämän signaalin kun 30 sekuntia on kulunut
