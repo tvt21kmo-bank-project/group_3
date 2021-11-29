@@ -59,6 +59,9 @@ void Nosto_Credit::maara_painettu_2()
     Numero2 =(ui->CreditDisplay->text() + button2->text()).toDouble();
 
     Uusi_numero2 = QString::number(Numero2);
+
+    NumeroCreditlol = Uusi_numero2;
+    ui->CreditDisplay->setText(NumeroCreditlol);
 }
 void Nosto_Credit::on_btnMenu_2_clicked()
 {
