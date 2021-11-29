@@ -72,6 +72,18 @@ QPushButton:pressed {
    <property name="text">
     <string>20</string>
    </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="autoExclusive">
+    <bool>false</bool>
+   </property>
+   <property name="autoRepeatInterval">
+    <number>100</number>
+   </property>
   </widget>
   <widget class="QPushButton" name="btn40">
    <property name="geometry">
