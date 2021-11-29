@@ -6,24 +6,35 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>515</width>
-    <height>469</height>
+    <width>572</width>
+    <height>1314</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="btn20">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>80</y>
-     <width>176</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="lblkayttaja">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn20">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -68,34 +79,33 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>20</string>
-   </property>
-   <property name="checkable">
-    <bool>false</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-   <property name="autoExclusive">
-    <bool>false</bool>
-   </property>
-   <property name="autoRepeatInterval">
-    <number>100</number>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn40">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>140</y>
-     <width>176</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>20</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <property name="autoExclusive">
+      <bool>false</bool>
+     </property>
+     <property name="autoRepeatInterval">
+      <number>100</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn40">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -140,22 +150,21 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>40</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn60">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>200</y>
-     <width>176</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>40</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn60">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -200,22 +209,21 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>60</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn100">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>80</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>60</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn100">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -260,22 +268,21 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>100</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn200">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>140</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>100</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn200">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -320,22 +327,21 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>200</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn500">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>200</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>200</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn500">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -380,32 +386,66 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>500</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="muuSumma">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>320</y>
-     <width>171</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnNosta">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>380</y>
-     <width>181</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>500</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="lblDebit_nostosumma">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Nostettava summa:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="Debitdisplay">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="maxLength">
+      <number>3</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Muu summa:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="muuSumma">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnNosta">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -450,40 +490,21 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>Nosta</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>260</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Muu summa:</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnMenu">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>380</y>
-     <width>176</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>Nosta</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnMenu">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -528,83 +549,25 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>Menu</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="Debitdisplay">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>320</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="maxLength">
-    <number>3</number>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lblDebit_nostosumma">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>260</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Nostettava summa:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lblkayttaja">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>20</y>
-     <width>331</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lblInfo">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>430</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
+     </property>
+     <property name="text">
+      <string>Menu</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="lblInfo">
+     <property name="font">
+      <font>
+       <pointsize>28</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

@@ -13,28 +13,49 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="btnNosto">
-   <property name="geometry">
-    <rect>
-     <x>380</x>
-     <y>190</y>
-     <width>241</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>22</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="lblTervehdys_2">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="lblTervehdys">
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnPadelCoin">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -57,33 +78,27 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>Nosto</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnTilitapahtumat">
-   <property name="geometry">
-    <rect>
-     <x>380</x>
-     <y>70</y>
-     <width>241</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>22</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>Padelcoin</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnTilitapahtumat">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -106,33 +121,27 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>Tilitapahtumat</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnPadelCoin">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>70</y>
-     <width>241</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>22</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>Tilitapahtumat</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnSaldo">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -155,33 +164,27 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>Padelcoin</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnSaldo">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>190</y>
-     <width>241</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>22</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>Saldo</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnNosto">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -204,33 +207,27 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>Saldo</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnULos">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>310</y>
-     <width>241</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>22</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
+     </property>
+     <property name="text">
+      <string>Nosto</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnULos">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
 
   background-color:  #C0C0C0;
     border-style: outset;
@@ -253,47 +250,13 @@ QPushButton:pressed {
     padding: 6px;
 	color: black;
 }♣</string>
-   </property>
-   <property name="text">
-    <string>Kirjaudu ulos</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lblTervehdys">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>10</y>
-     <width>301</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>24</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lblTervehdys_2">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>10</y>
-     <width>261</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>24</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
+     </property>
+     <property name="text">
+      <string>Kirjaudu ulos</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

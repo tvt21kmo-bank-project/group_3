@@ -636,7 +636,7 @@ QPushButton:pressed {
     <item row="0" column="0">
      <widget class="QPushButton" name="btnSulje">
       <property name="text">
-       <string>Sulje lol</string>
+       <string>Sulje</string>
       </property>
      </widget>
     </item>
