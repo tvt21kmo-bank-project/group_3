@@ -48,6 +48,7 @@ private:
 
 signals:
     void resetTimerNostostaValikkoon(int);
+      void resetTimerJapi(int);
 
 };
 

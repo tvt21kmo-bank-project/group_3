@@ -6,46 +6,41 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>781</width>
-    <height>449</height>
+    <width>2175</width>
+    <height>722</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <widget class="QPushButton" name="btnDebit">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>180</y>
-     <width>251</width>
-     <height>81</height>
+     <x>10</x>
+     <y>80</y>
+     <width>1051</width>
+     <height>561</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>48</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton {
-
-  background-color:  #C0C0C0;
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
-    min-width: 10em;
-    padding: 6px;
-	color: black;
-}♣
-
-QPushButton:pressed {
-
-  background-color:  #808080;
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
-    min-width: 10em;
-    padding: 6px;
-	color: black;
-}♣</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Debit</string>
@@ -54,36 +49,25 @@ QPushButton:pressed {
   <widget class="QPushButton" name="btnCredit">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>180</y>
-     <width>261</width>
-     <height>81</height>
+     <x>1110</x>
+     <y>80</y>
+     <width>1041</width>
+     <height>561</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>48</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton {
-
-  background-color:  #C0C0C0;
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
-    min-width: 10em;
-    padding: 6px;
-	color: black;
-}♣
-
-QPushButton:pressed {
-
-  background-color:  #808080;
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: beige;
-    min-width: 10em;
-    padding: 6px;
-	color: black;
-}♣</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Credit</string>

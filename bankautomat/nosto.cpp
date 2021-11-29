@@ -62,7 +62,10 @@ void Nosto::maara_painettu()
     Numerolol = Uusi_numero;
 
     ui->Debitdisplay->setText(Numerolol);
+    timerNmbr = 20;
+    emit resetTimerJapi(timerNmbr);
     qDebug()<<Uusi_numero;
+
 }
 
 void Nosto::on_btnMenu_clicked()

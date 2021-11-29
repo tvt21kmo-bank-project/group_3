@@ -48,7 +48,7 @@ private:
 
  signals:
         void resetTimerCreditNostostaValikkoon(int);
-
+        void resetTimerCreditAki(int);
 };
 
 #endif // NOSTO_CREDIT_H

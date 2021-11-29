@@ -6,7 +6,7 @@ Nosto_Credit::Nosto_Credit(QWidget *parent) :
     ui(new Ui::Nosto_Credit)
 {
     ui->setupUi(this);
-
+    ui->CreditDisplay->setText("");
     //Napit ei jostain syystä vielä toimi mutta muu summalla toimii hyvin
     connect(ui->btn20_2,SIGNAL(released()),this,SLOT(maara_painettu_2()));
     connect(ui->btn40_2,SIGNAL(released()),this,SLOT(maara_painettu_2()));
@@ -62,7 +62,11 @@ void Nosto_Credit::maara_painettu_2()
     NumeroCreditlol = Uusi_numero2;
 
     ui->CreditDisplay->setText(NumeroCreditlol);
+    timerNmbr = 19;
+    emit resetTimerCreditAki(timerNmbr);
     qDebug()<<Uusi_numero2;
+
+
 }
 void Nosto_Credit::on_btnMenu_2_clicked()
 {
