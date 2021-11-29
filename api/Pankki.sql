@@ -38,7 +38,7 @@ CREATE TABLE `asiakas` (
 
 LOCK TABLES `asiakas` WRITE;
 /*!40000 ALTER TABLE `asiakas` DISABLE KEYS */;
-INSERT INTO `asiakas` VALUES (1,'Mauri ','Monikortti'),(2,'Rauli','Reppana'),(6666,'666','666');
+INSERT INTO `asiakas` VALUES (1,'Esko','Eka'),(2,'Mauri','Monikortti'),(69,'Aki','Nikkinen'),(6666,'666','666');
 /*!40000 ALTER TABLE `asiakas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +93,7 @@ CREATE TABLE `pankki_kortti` (
 
 LOCK TABLES `pankki_kortti` WRITE;
 /*!40000 ALTER TABLE `pankki_kortti` DISABLE KEYS */;
-INSERT INTO `pankki_kortti` VALUES (6666,'$2a$10$4PQtQTBvPMVWMF8M3ifavuzU/sUgAaDTHITCFMXqIG7UrmSUSB7fK',1),(7777,'$2a$10$nnelBICXaMTNjG/pBxdvIOlNDDkzsozZs7W8bLzbTm3D1A2yY.k8u',2);
+INSERT INTO `pankki_kortti` VALUES (6969,'$2a$10$PPHsG/88m44J5EJZwEzyIORe2D9hRvGlSKVDCWsLvN7zFHeqfVp2.',69),(1234,'$2a$10$.WDkWtJuO5LLJLSMIrRq3.W8lJCrY6eJsahCwCzlqNswgaCTzLlyS',1),(2222,'$2a$10$x8EcOz25Cf8YVA0XpszQLOJFaUvPUDsq8KKb0DAkyNxhWwjV/Kdfy',2);
 /*!40000 ALTER TABLE `pankki_kortti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +121,7 @@ CREATE TABLE `tilit` (
 
 LOCK TABLES `tilit` WRITE;
 /*!40000 ALTER TABLE `tilit` DISABLE KEYS */;
-INSERT INTO `tilit` VALUES (1004,'1004',1084460,'Debit',0,0),(6666,'6666',85000,'Credit',20000,0),(7777,'7777',0,'Debit',0,666);
+INSERT INTO `tilit` VALUES (1004,'1004',1709,'Debit',0,0),(1234,'1234',6666,'Credit',2000,0),(2222,'2222',-274,'Debit / Credit',2000,69),(6969,'6969',10000,'Debit',0,69);
 /*!40000 ALTER TABLE `tilit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,14 +134,14 @@ DROP TABLE IF EXISTS `tilitapahtumat`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tilitapahtumat` (
   `idtilitapahtumat` int NOT NULL AUTO_INCREMENT,
-  `Paivays` datetime DEFAULT NULL,
+  `Paivays` timestamp NULL DEFAULT NULL,
   `Tapahtuma` varchar(45) DEFAULT NULL,
   `Rahamaara` varchar(45) DEFAULT NULL,
   `idtilit` int NOT NULL,
   PRIMARY KEY (`idtilitapahtumat`),
   KEY `fk_tilitapahtumat_tilit1_idx` (`idtilit`),
   CONSTRAINT `fk_tilitapahtumat_tilit1` FOREIGN KEY (`idtilit`) REFERENCES `tilit` (`idtilit`)
-) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=205 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE `tilitapahtumat` (
 
 LOCK TABLES `tilitapahtumat` WRITE;
 /*!40000 ALTER TABLE `tilitapahtumat` DISABLE KEYS */;
-INSERT INTO `tilitapahtumat` VALUES (153,'2021-11-26 19:48:01','Nosto','500',7777),(154,'2021-11-26 19:48:01','Siirto','500',1004),(155,'2021-11-26 19:48:06','Nosto','60',7777),(156,'2021-11-26 19:48:06','Siirto','60',1004),(157,'2021-11-26 19:48:09','Nosto','666',7777),(158,'2021-11-26 19:48:09','Siirto','666',1004),(159,'2021-11-27 17:30:58','Nosto','555',6666),(160,'2021-11-27 17:30:58','Siirto','555',1004),(161,'2021-11-27 17:40:02','Nosto','666',6666),(162,'2021-11-27 17:40:02','Siirto','666',1004),(163,'2021-11-27 18:12:43','Nosto','1000',6666),(164,'2021-11-27 18:12:43','Siirto','1000',1004),(165,'2021-11-27 18:13:03','Nosto','1000000',6666),(166,'2021-11-27 18:13:03','Siirto','1000000',1004),(167,'2021-11-29 09:40:54','Nosto','500',6666),(168,'2021-11-29 09:40:54','Siirto','500',1004),(169,'2021-11-29 09:41:18','Nosto','200',7777),(170,'2021-11-29 09:41:18','Siirto','200',1004),(171,'2021-11-29 09:41:21','Nosto','100',7777),(172,'2021-11-29 09:41:21','Siirto','100',1004),(173,'2021-11-29 10:01:32','Nosto','15000',6666),(174,'2021-11-29 10:01:32','Siirto','15000',1004),(175,'2021-11-29 10:12:46','Nosto','65140',7777),(176,'2021-11-29 10:12:46','Siirto','65140',1004);
+INSERT INTO `tilitapahtumat` VALUES (193,'2021-11-29 11:26:21','Nosto','500',6969),(194,'2021-11-29 11:26:21','Siirto','500',1004),(195,'2021-11-29 11:26:24','Nosto','200',6969),(196,'2021-11-29 11:26:24','Siirto','200',1004),(197,'2021-11-29 11:54:54','Nosto','200',2222),(198,'2021-11-29 11:54:54','Siirto','200',1004),(199,'2021-11-29 12:00:46','Nosto','40',2222),(200,'2021-11-29 12:00:46','Siirto','40',1004),(201,'2021-11-29 12:10:05','Nosto','200',2222),(202,'2021-11-29 12:10:05','Siirto','200',1004),(203,'2021-11-29 12:22:29','Nosto','500',2222),(204,'2021-11-29 12:22:29','Siirto','500',1004);
 /*!40000 ALTER TABLE `tilitapahtumat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,4 +256,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-29 10:19:39
+-- Dump completed on 2021-11-29 14:26:03
