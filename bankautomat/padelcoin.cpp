@@ -47,7 +47,7 @@ void Padelcoin::PadelKoti(QNetworkReply *reply)
 
     qDebug()<<PadelTulos;
     ui->txtPadel->setText("Padelcoin saldosi on : " + PadelTulos + "\r" + "Padelcoinin tämän hetkinen arvo:" + PadelArvo + "\r"
-                          + "Saatanan Klovni");
+                          + "Senkin Klovni");
 }
 }
 

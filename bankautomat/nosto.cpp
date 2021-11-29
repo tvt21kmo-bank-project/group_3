@@ -7,7 +7,7 @@ Nosto::Nosto(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+  ui->lblInfo->setText("");
     connect(ui->btn20,SIGNAL(released()),this,SLOT(maara_painettu()));
     connect(ui->btn40,SIGNAL(released()),this,SLOT(maara_painettu()));
     connect(ui->btn60,SIGNAL(released()),this,SLOT(maara_painettu()));
@@ -54,13 +54,15 @@ void Nosto::maara_painettu()
    //Double muuttuja jotta voidaan muuttaa Qstring arvo Double muotoon että Qt tajuaa laittaa seuraavan numeron äskeisen perään eri säilyttää arvon ruudulla
     QString Uusi_numero;
 
-    Numero =(ui->Debitdisplay->text() + button1->text()).toDouble();
+    Numero =  button1->text().toDouble();
 
     Uusi_numero = QString::number(Numero);
+
 
     Numerolol = Uusi_numero;
 
     ui->Debitdisplay->setText(Numerolol);
+    qDebug()<<Uusi_numero;
 }
 
 void Nosto::on_btnMenu_clicked()

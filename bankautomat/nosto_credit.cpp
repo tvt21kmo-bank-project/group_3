@@ -51,16 +51,18 @@ void Nosto_Credit::maara_painettu_2()
 {
     QPushButton* button2 = (QPushButton*)sender(); //Luodaan QPushbutton olio
     double Numero2;
-   //Double muuttuja jotta voidaan muuttaa Qstring arvo Double muotoon että Qt tajuaa laittaa seuraavan numeron äskeisen perään eri säilyttää arvon ruudulla
+
     QString Uusi_numero2;
 
-    Numero2 =(ui->CreditDisplay->text() + button2->text()).toDouble();
+    Numero2 =  button2->text().toDouble();
 
     Uusi_numero2 = QString::number(Numero2);
+
 
     NumeroCreditlol = Uusi_numero2;
 
     ui->CreditDisplay->setText(NumeroCreditlol);
+    qDebug()<<Uusi_numero2;
 }
 void Nosto_Credit::on_btnMenu_2_clicked()
 {

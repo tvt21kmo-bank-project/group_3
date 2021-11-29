@@ -32,7 +32,7 @@ private:
     int timerNmbr;
     QNetworkAccessManager *PadelManager;
     QNetworkReply *reply;
-    QString PadelTulos;
+   QString PadelTulos;
       QString PadelId;
       QString PadelArvo ;
       float Klovni;
