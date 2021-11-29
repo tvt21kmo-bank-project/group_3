@@ -135,25 +135,23 @@ void MainWindow::numero_painettu()
 
  double Numero;
 
+ //Pekan luvalla saatu oikoa niin että ID syötetään käsin ja pin numero näppäimillä :)
 
 //Double muuttuja jotta voidaan muuttaa Qstring arvo Double muotoon että Qt tajuaa laittaa seuraavan numeron äskeisen perään eri säilyttää arvon ruudulla
  QString Uusi_numero;
-  QString Uusi_numero2;
- //QString muuttuja, että saadaan Double arvo tulostettua QStringillä :D LOL
+ //QString muuttuja, että saadaan Double arvo tulostettua.
 
- Numero =(ui->Display1->text() + button->text()).toDouble();
+ Numero =(ui->Display2->text() + button->text()).toDouble();
 
  Uusi_numero = QString::number(Numero);
 
- ui->Display1->setText(Uusi_numero);
+ ui->Display2->setText(Uusi_numero);
 
- Uusi_numero2 = QString::number(Numero);
 
- ui->Display2->setText(Uusi_numero2);
+
+
 
 }
-
-
 
 
 
@@ -372,7 +370,6 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
     if(jokuIkkuna == 2)
     {
         objPankki->close();
-        //objCredit->show();
         objTimer->start();
     }
     if(jokuIkkuna == 3)
