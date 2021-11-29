@@ -84,6 +84,8 @@ private:
    QString Nikkinen;
    QString Kuula_Nikkinen;
    QString Keino_Aki;
+   QString Sergei;
+   short Aaro = 0;
 
 public slots:
     void menuTimerSlotti();

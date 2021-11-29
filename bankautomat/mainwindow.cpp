@@ -192,9 +192,11 @@ void MainWindow::on_btnOK_clicked()
 }
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
+
     QByteArray response_data=reply->readAll();
     //qDebug()<<response_data;
-    if(response_data=="true"){
+    if(response_data=="true" && Taalasmaa != Sergei){
+
         qDebug()<<"Oikea tunnus nice!";
       emit signalLakki(Taalasmaa);
 
@@ -203,9 +205,15 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 
     }
     else if(response_data=="false"){
+
         qDebug()<<"Väärät tunnukset senkin pelle";
         ui->Display1->setText("");
         ui->Display2->setText("");
+        Aaro++;
+        if(Aaro == 3){
+           Sergei = Taalasmaa;
+        }
+        qDebug()<<Aaro;
     }
 }
 
@@ -350,7 +358,7 @@ void MainWindow::menuTimerSlotti()
 {
     timerCounter++; //timerCounter-muuttujan arvo kasvaa yhdellä joka sekunti
     qDebug()<<timerCounter;
-    if(timerCounter == 30) // kun timerCounter saavuttaa arvon 30 sek, (tai tässä testimielessä 5 sek)
+    if(timerCounter == 5) // kun timerCounter saavuttaa arvon 30 sek, (tai tässä testimielessä 5 sek)
     {
         emit aikaLoppu();   //niin aikaLoppu() -signaali lähetetään menu-luokan slottiin
         objTimer->stop();
