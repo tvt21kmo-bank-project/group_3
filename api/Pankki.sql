@@ -121,7 +121,7 @@ CREATE TABLE `tilit` (
 
 LOCK TABLES `tilit` WRITE;
 /*!40000 ALTER TABLE `tilit` DISABLE KEYS */;
-INSERT INTO `tilit` VALUES (1004,'1004',1709,'Debit',0,0),(1234,'1234',6666,'Credit',2000,0),(2222,'2222',-274,'Debit / Credit',2000,69),(6969,'6969',10000,'Debit',0,69);
+INSERT INTO `tilit` VALUES (1004,'1004',2029,'Debit',300,0),(1234,'1234',6666,'Credit',1900,0),(2222,'2222',-594,'Debit / Credit',1800,69),(6969,'6969',10000,'Debit',0,69);
 /*!40000 ALTER TABLE `tilit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +141,7 @@ CREATE TABLE `tilitapahtumat` (
   PRIMARY KEY (`idtilitapahtumat`),
   KEY `fk_tilitapahtumat_tilit1_idx` (`idtilit`),
   CONSTRAINT `fk_tilitapahtumat_tilit1` FOREIGN KEY (`idtilit`) REFERENCES `tilit` (`idtilit`)
-) ENGINE=InnoDB AUTO_INCREMENT=205 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=215 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE `tilitapahtumat` (
 
 LOCK TABLES `tilitapahtumat` WRITE;
 /*!40000 ALTER TABLE `tilitapahtumat` DISABLE KEYS */;
-INSERT INTO `tilitapahtumat` VALUES (193,'2021-11-29 11:26:21','Nosto','500',6969),(194,'2021-11-29 11:26:21','Siirto','500',1004),(195,'2021-11-29 11:26:24','Nosto','200',6969),(196,'2021-11-29 11:26:24','Siirto','200',1004),(197,'2021-11-29 11:54:54','Nosto','200',2222),(198,'2021-11-29 11:54:54','Siirto','200',1004),(199,'2021-11-29 12:00:46','Nosto','40',2222),(200,'2021-11-29 12:00:46','Siirto','40',1004),(201,'2021-11-29 12:10:05','Nosto','200',2222),(202,'2021-11-29 12:10:05','Siirto','200',1004),(203,'2021-11-29 12:22:29','Nosto','500',2222),(204,'2021-11-29 12:22:29','Siirto','500',1004);
+INSERT INTO `tilitapahtumat` VALUES (193,'2021-11-29 11:26:21','Nosto','500',6969),(194,'2021-11-29 11:26:21','Siirto','500',1004),(195,'2021-11-29 11:26:24','Nosto','200',6969),(196,'2021-11-29 11:26:24','Siirto','200',1004),(197,'2021-11-29 11:54:54','Nosto','200',2222),(198,'2021-11-29 11:54:54','Siirto','200',1004),(199,'2021-11-29 12:00:46','Nosto','40',2222),(200,'2021-11-29 12:00:46','Siirto','40',1004),(201,'2021-11-29 12:10:05','Nosto','200',2222),(202,'2021-11-29 12:10:05','Siirto','200',1004),(203,'2021-11-29 12:22:29','Nosto','500',2222),(204,'2021-11-29 12:22:29','Siirto','500',1004),(205,'2021-11-29 13:06:11','Nosto','200',2222),(206,'2021-11-29 13:06:11','Siirto','200',1004),(207,'2021-11-29 13:21:46','Nosto','20',2222),(208,'2021-11-29 13:21:46','Siirto','20',1004),(209,'2021-11-29 14:28:53','Nosto','100',2222),(210,'2021-11-29 14:28:53','Siirto','100',1004),(211,'2021-11-30 06:09:15','Nosto','100',1234),(212,'2021-11-30 06:09:15','Siirto','100',1004),(213,'2021-11-30 06:10:57','Nosto','200',2222),(214,'2021-11-30 06:10:57','Siirto','200',1004);
 /*!40000 ALTER TABLE `tilitapahtumat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,9 +171,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `credit_transfer`(IN first_id INT, I
 BEGIN
   DECLARE test1,test2 INT DEFAULT 0;
   START TRANSACTION;
-  UPDATE tilit SET saldo=saldo-amount WHERE idtilit=first_id AND Luottoraja+Saldo>amount;
+  UPDATE tilit SET Luottoraja=Luottoraja-amount WHERE idtilit=first_id AND Luottoraja+Saldo>amount;
   SET test1=ROW_COUNT();
-  UPDATE tilit SET saldo=saldo+amount WHERE idtilit=second_id;
+  UPDATE tilit SET Luottoraja=Luottoraja+amount WHERE idtilit=second_id;
   SET test2=ROW_COUNT();
     IF (test1 > 0 AND test2 >0) THEN   
       COMMIT;    
@@ -256,4 +256,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-29 14:26:03
+-- Dump completed on 2021-11-30  8:13:02

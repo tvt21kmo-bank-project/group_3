@@ -45,7 +45,7 @@ void Saldo_credit::SaldoCreditTulostus(QNetworkReply *reply)
     QString hattu;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    hattu+=QString::number(json_obj["Saldo"].toDouble());
+    hattu+=QString::number(json_obj["Luottoraja"].toDouble());
     CreditViikset = hattu;
     ui->label_2->setText(CreditViikset + " " + "€");
 }
