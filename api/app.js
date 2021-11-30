@@ -17,6 +17,7 @@ const korttiRouter = require('./routes/kortti');
 const loginRouter = require('./routes/login');
 var bankRouter = require('./routes/pankki');
 const tilitapahtumatRouter = require('./routes/tilitapahtumat');
+const LuottoRouter = require('./routes/Luotto');
 const saldoRouter = require('./routes/saldo');
 
 
@@ -42,5 +43,6 @@ app.use('/login', loginRouter);
 app.use('/bank', bankRouter);
 app.use('/tilitapahtumat', tilitapahtumatRouter);
 app.use('/saldo', saldoRouter);
+app.use('/Luotto', LuottoRouter);
 
 module.exports = app;
