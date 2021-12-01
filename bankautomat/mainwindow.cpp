@@ -205,7 +205,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
         qDebug()<<"Oikea tunnus nice!";
       emit signalLakki(Taalasmaa);
 
-        objPankki->show();
+        objPankki->showFullScreen();
 
 
     }
