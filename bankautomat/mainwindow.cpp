@@ -209,12 +209,13 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     }
     else if(response_data=="false"){
 
-        qDebug()<<"Väärät tunnukset senkin pelle";
+        ui->lblLoukkaaja->setText("Väärät tunnukset senkin pelle");
         ui->Display1->setText("");
         ui->Display2->setText("");
         Aaro++;
         if(Aaro == 3){
            Sergei = Taalasmaa;
+           ui->lblLoukkaaja->setText("Tili lukittu LOL");
         }
         qDebug()<<Aaro;
     }
