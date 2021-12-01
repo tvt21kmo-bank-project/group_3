@@ -202,7 +202,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     //qDebug()<<response_data;
     if(response_data=="true" && Taalasmaa != Stuba){
 
-        qDebug()<<"Oikea tunnus nice!";
+       ui->lblLoukkaaja->setText("Oikea tunnus nice!");
       emit signalLakki(Taalasmaa);
 
         objPankki->showFullScreen();
@@ -389,6 +389,7 @@ void MainWindow::menuTimerSlotti()
         emit aikaLoppu();   //niin aikaLoppu() -signaali lähetetään menu-luokan slottiin
         objTimer->stop();
         timerCounter = 0;
+        ui->lblLoukkaaja->setText("");
     }
 }
 
@@ -434,6 +435,7 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
          if(jokuIkkuna == 7)
          {
         objDebit->close();
+        ui->lblLoukkaaja->setText("");
         objTimer->stop();
         }
 
@@ -484,6 +486,7 @@ void MainWindow::resetTimer(int jokuIkkuna) //MUIDEN LUOKKIEN FUNKTIOISSA LÄHET
        if(jokuIkkuna == 15)
        {
            objCredit->close();
+           ui->lblLoukkaaja->setText("");
            objTimer->stop();
        }
        if(jokuIkkuna == 16)
