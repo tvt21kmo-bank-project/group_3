@@ -186,6 +186,8 @@ void MainWindow::on_btnOK_clicked()
 
 
 
+
+
      objTimer->start(1000); //käynnistetään timer tässä, koska OK-painikkeen painamisen jälkeen siirrytään ensimmäiseen kellotettavaan ikkunaan
      ui->Display1->setText("");
      ui->Display2->setText("");
@@ -198,7 +200,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 
     QByteArray response_data=reply->readAll();
     //qDebug()<<response_data;
-    if(response_data=="true" && Taalasmaa != Sergei){
+    if(response_data=="true" && Taalasmaa != Stuba){
 
         qDebug()<<"Oikea tunnus nice!";
       emit signalLakki(Taalasmaa);
@@ -213,14 +215,34 @@ void MainWindow::loginSlot(QNetworkReply *reply)
         ui->Display1->setText("");
         ui->Display2->setText("");
         Aaro++;
-        if(Aaro == 3){
-           Sergei = Taalasmaa;
-           ui->lblLoukkaaja->setText("Tili lukittu LOL");
+        if(Aaro == 1){
+           Sergei = Taalasmaa; //esim. Sergei = 2222
+
+                  qDebug()<<"Sergei on bae";
+
+
         }
-        qDebug()<<Aaro;
+        if(Aaro == 2){
+            Eero = Taalasmaa; //esim. Eero = 2222
+            if(Eero != Sergei){
+                Sergei = Taalasmaa;
+                Aaro = 1;
+            }
+
+                 qDebug()<<"Eero on Sönkkö";
+
+
+        }
+        if(Aaro == 3){
+            Stuba = Taalasmaa; //...
+            if (Aaro == 3 && Eero == Sergei && Stuba == Eero){
+                qDebug()<<Aaro<<Eero<<Sergei<<Stuba<<Taalasmaa;
+                ui->lblLoukkaaja->setText("Tili lukittu LOL");
+            }
+            Aaro = 0;
     }
 }
-
+}
 
 
 void MainWindow::Delismo(const QString &Taalasmaa)
