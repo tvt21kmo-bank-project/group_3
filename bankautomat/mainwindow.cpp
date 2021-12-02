@@ -384,7 +384,7 @@ void MainWindow::menuTimerSlotti()
 {
     timerCounter++; //timerCounter-muuttujan arvo kasvaa yhdellä joka sekunti
     qDebug()<<timerCounter;
-    if(timerCounter == 20) // kun timerCounter saavuttaa arvon 30 sek, (tai tässä testimielessä 5 sek)
+    if(timerCounter == 30) // kun timerCounter saavuttaa arvon 30 sek, (tai tässä testimielessä 5 sek)
     {
         emit aikaLoppu();   //niin aikaLoppu() -signaali lähetetään menu-luokan slottiin
         objTimer->stop();
